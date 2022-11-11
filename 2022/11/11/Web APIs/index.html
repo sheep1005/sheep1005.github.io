@@ -354,8 +354,8 @@
 </ul>
 <h3 id="3-2-获取元素"><a href="#3-2-获取元素" class="headerlink" title="3.2 获取元素"></a>3.2 获取元素</h3><h4 id="3-2-1-根据-ID-获取"><a href="#3-2-1-根据-ID-获取" class="headerlink" title="3.2.1 根据 ID 获取"></a>3.2.1 根据 ID 获取</h4><ul>
 <li><p><strong>getElementById(id)</strong></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> element = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(id);</span><br></pre></td></tr></table></figure>
-
+<pre><code class="javascript">let element = document.getElementById(id);
+</code></pre>
 <ul>
 <li><p>&#x3D;&#x3D;返回的是一个元素对象&#x3D;&#x3D;</p>
 </li>
@@ -366,35 +366,55 @@
 <li><p>因为我们文档页面从上往下加载，所以先得有标签 所以我们script写到标签的下面</p>
 </li>
 <li><p>&#x3D;&#x3D;<strong>console.dir</strong>&#x3D;&#x3D; 打印我们返回的元素对象 更好的&#x3D;&#x3D;查看里面的属性和方法&#x3D;&#x3D;</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;time&quot;</span>&gt;</span>2019-9-9<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">	<span class="keyword">let</span> timer = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;time&#x27;</span>);</span></span><br><span class="line"><span class="language-javascript">	<span class="variable language_">console</span>.<span class="title function_">log</span>(timer);<span class="comment">// &lt;div id=&quot;time&quot;&gt;2019-9-9&lt;/div&gt;</span></span></span><br><span class="line"><span class="language-javascript">	<span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="keyword">typeof</span> timer);<span class="comment">// Object</span></span></span><br><span class="line"><span class="language-javascript">	<span class="variable language_">console</span>.<span class="title function_">dir</span>(timer);<span class="comment">// time 的属性和方法</span></span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
+<pre><code class="html">&lt;div id=&quot;time&quot;&gt;2019-9-9&lt;/div&gt;
+
+&lt;script&gt;
+    let timer = document.getElementById(&#39;time&#39;);
+    console.log(timer);// &lt;div id=&quot;time&quot;&gt;2019-9-9&lt;/div&gt;
+    console.log(typeof timer);// Object
+    console.dir(timer);// time 的属性和方法
+&lt;/script&gt;
+</code></pre>
+</li>
 </ul>
 </li>
 </ul>
 <h4 id="3-2-2-根据标签名获取"><a href="#3-2-2-根据标签名获取" class="headerlink" title="3.2.2 根据标签名获取"></a>3.2.2 根据标签名获取</h4><ul>
 <li><p>getElementsByTagName(标签名)</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> lis = <span class="variable language_">document</span>.<span class="title function_">getElementsByTagName</span>(<span class="string">&#x27;标签名&#x27;</span>);</span><br></pre></td></tr></table></figure>
-
+<pre><code class="javascript">let lis = document.getElementsByTagName(&#39;标签名&#39;);
+</code></pre>
 <ul>
 <li><p>返回的是带有指定标签名的&#x3D;&#x3D;对象的集合&#x3D;&#x3D;，以&#x3D;&#x3D;伪数组的形式存储&#x3D;&#x3D;的</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(lis);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(lis[<span class="number">0</span>]);</span><br></pre></td></tr></table></figure>
+<pre><code class="javascript">        console.log(lis);
+        console.log(lis[0]);
+</code></pre>
 </li>
 <li><p>得到的元素是动态的</p>
 </li>
 <li><p>我们想要依次打印里面的元素对象我们可以采取遍历的方式</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">for (let i = 0; i &lt; lis.length; i++) &#123;</span><br><span class="line">    console.log(lis[i]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="html">for (let i = 0; i &lt; lis.length; i++) &#123;
+    console.log(lis[i]);
+&#125;
+</code></pre>
 </li>
 <li><p>如果页面中只有一个li 返回的还是伪数组的形式 </p>
 </li>
 <li><p>如果页面中没有这个元素 返回的是空的伪数组的形式</p>
 </li>
 <li><p>&#x3D;&#x3D;element.getElementsByTagName(‘标签名’);&#x3D;&#x3D;父元素必须是&#x3D;&#x3D;指定的单个元素&#x3D;&#x3D;，获取的时候不包括父元素自己</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> ol = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;ol&#x27;</span>);     </span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(ol.<span class="title function_">getElementsByTagName</span>(<span class="string">&#x27;li&#x27;</span>));</span><br></pre></td></tr></table></figure></li>
+<pre><code class="javascript">let ol = document.getElementById(&#39;ol&#39;);     
+console.log(ol.getElementsByTagName(&#39;li&#39;));
+</code></pre>
+</li>
 </ul>
 </li>
 </ul>
 <h4 id="3-2-3-通过-HTML5-新增的方法获取"><a href="#3-2-3-通过-HTML5-新增的方法获取" class="headerlink" title="3.2.3 通过 HTML5 新增的方法获取"></a>3.2.3 通过 HTML5 新增的方法获取</h4><h5 id="（1）getElementsByClassName-类名"><a href="#（1）getElementsByClassName-类名" class="headerlink" title="（1）getElementsByClassName(类名)"></a>（1）getElementsByClassName(类名)</h5><ul>
 <li><p>根据类名获得某些元素集合</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> boxs = <span class="variable language_">document</span>.<span class="title function_">getElementsByClassName</span>(<span class="string">&#x27;box&#x27;</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(boxs);</span><br></pre></td></tr></table></figure></li>
+<pre><code class="javascript">let boxs = document.getElementsByClassName(&#39;box&#39;);
+console.log(boxs);
+</code></pre>
+</li>
 </ul>
 <h5 id="（2）querySelector"><a href="#（2）querySelector" class="headerlink" title="（2）querySelector()"></a>（2）querySelector()</h5><ul>
 <li><p>返回指定选择器的第一个元素对象</p>
@@ -405,17 +425,27 @@
 <li>querySelector(‘#ID名’)</li>
 <li>querySelector(‘标签名’)</li>
 </ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> firstBox = <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;.box&#x27;</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(firstBox);</span><br><span class="line"><span class="keyword">let</span> nav = <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;#nav&#x27;</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(nav);</span><br><span class="line"><span class="keyword">var</span> li = <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;li&#x27;</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(li);</span><br></pre></td></tr></table></figure></li>
+<pre><code class="javascript">let firstBox = document.querySelector(&#39;.box&#39;);
+console.log(firstBox);
+let nav = document.querySelector(&#39;#nav&#39;);
+console.log(nav);
+var li = document.querySelector(&#39;li&#39;);
+console.log(li);
+</code></pre>
+</li>
 </ul>
 </li>
 </ul>
 <h5 id="（3）querySelectorAll"><a href="#（3）querySelectorAll" class="headerlink" title="（3）querySelectorAll()"></a>（3）querySelectorAll()</h5><ul>
 <li>返回指定选择器的所有元素对象集合</li>
 </ul>
-<h4 id="3-2-4-获取特殊元素"><a href="#3-2-4-获取特殊元素" class="headerlink" title="3.2.4 获取特殊元素"></a>3.2.4 获取特殊元素</h4><h5 id="（1）获取-body-标签"><a href="#（1）获取-body-标签" class="headerlink" title="（1）获取 body 标签"></a>（1）获取 body 标签</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> bodyEle = <span class="variable language_">document</span>.<span class="property">body</span>;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(bodyEle);<span class="comment">// 元素</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">dir</span>(bodyEle);<span class="comment">// 属性方法</span></span><br></pre></td></tr></table></figure>
-
-<h5 id="（2）获取-head-标签"><a href="#（2）获取-head-标签" class="headerlink" title="（2）获取 head 标签"></a>（2）获取 head 标签</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> htmlEle = <span class="variable language_">document</span>.<span class="property">documentElement</span>;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(htmlEle);</span><br></pre></td></tr></table></figure>
-
+<h4 id="3-2-4-获取特殊元素"><a href="#3-2-4-获取特殊元素" class="headerlink" title="3.2.4 获取特殊元素"></a>3.2.4 获取特殊元素</h4><h5 id="（1）获取-body-标签"><a href="#（1）获取-body-标签" class="headerlink" title="（1）获取 body 标签"></a>（1）获取 body 标签</h5><pre><code class="javascript">let bodyEle = document.body;
+console.log(bodyEle);// 元素
+console.dir(bodyEle);// 属性方法
+</code></pre>
+<h5 id="（2）获取-head-标签"><a href="#（2）获取-head-标签" class="headerlink" title="（2）获取 head 标签"></a>（2）获取 head 标签</h5><pre><code class="javascript">let htmlEle = document.documentElement;
+console.log(htmlEle);
+</code></pre>
 <h3 id="3-3-事件基础"><a href="#3-3-事件基础" class="headerlink" title="3.3 事件基础"></a>3.3 事件基础</h3><h5 id="3-3-1-事件概述"><a href="#3-3-1-事件概述" class="headerlink" title="3.3.1 事件概述"></a>3.3.1 事件概述</h5><ul>
 <li>JS 使我们有能力创建动态页面，而&#x3D;&#x3D;事件是&#x3D;&#x3D;可以被  JavaScript 侦测到的&#x3D;&#x3D;行为&#x3D;&#x3D;，触发相应的一种机制</li>
 </ul>
@@ -424,14 +454,19 @@
 <ul>
 <li>获得事件对象</li>
 </ul>
-  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> btn = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;btn&#x27;</span>);</span><br></pre></td></tr></table></figure>
+<pre><code class="javascript">let btn = document.getElementById(&#39;btn&#39;);
+</code></pre>
 </li>
 <li><p>事件类型（如何触发 什么事件 比如鼠标点击(onclick) 还是鼠标经过 还是键盘按下）</p>
 </li>
 <li><p>事件处理程序</p>
 <ul>
 <li><p>通过一个&#x3D;&#x3D;函数赋值的方式&#x3D;&#x3D;完成</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">btn.<span class="property">onclick</span> = <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="title function_">alert</span>(<span class="string">&#x27;点秋香&#x27;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<pre><code class="javascript">btn.onclick = function() &#123;
+    alert(&#39;点秋香&#39;);
+&#125;
+</code></pre>
+</li>
 </ul>
 </li>
 </ul>
@@ -442,23 +477,33 @@
 </blockquote>
 <ul>
 <li><p>获取元素</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> btn = <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;button&#x27;</span>);</span><br><span class="line"><span class="keyword">let</span> div = <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;div&#x27;</span>);</span><br><span class="line"><span class="keyword">let</span> p = <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;p&#x27;</span>);</span><br></pre></td></tr></table></figure>
+<pre><code class="javascript">let btn = document.querySelector(&#39;button&#39;);
+let div = document.querySelector(&#39;div&#39;);
+let p = document.querySelector(&#39;p&#39;);
+</code></pre>
 </li>
 <li><p>注册事件（元素可以不添加事件）</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">btn.<span class="property">onclick</span> = <span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">	<span class="comment">// div.innerText = &#x27;2019-6-6&#x27;;</span></span><br><span class="line">	div.<span class="property">innerText</span> = <span class="title function_">getDate</span>();<span class="comment">// JS 基础中封装的函数</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 元素可以不添加事件</span></span><br><span class="line">p.<span class="property">innerText</span> = <span class="title function_">getDate</span>();</span><br></pre></td></tr></table></figure></li>
+<pre><code class="javascript">btn.onclick = function()&#123;
+    // div.innerText = &#39;2019-6-6&#39;;
+    div.innerText = getDate();// JS 基础中封装的函数
+&#125;
+// 元素可以不添加事件
+p.innerText = getDate();
+</code></pre>
+</li>
 </ul>
 <h6 id="（2）-x3D-x3D-innerHTML-x3D-x3D"><a href="#（2）-x3D-x3D-innerHTML-x3D-x3D" class="headerlink" title="（2）&#x3D;&#x3D;innerHTML&#x3D;&#x3D;"></a>（2）&#x3D;&#x3D;innerHTML&#x3D;&#x3D;</h6><blockquote>
 <p>替换从开始到终止位置的内容，保留 html 标签，同时也保留空格和换行</p>
 </blockquote>
 <h6 id="（3）innerText-和-x3D-x3D-innerHTML-x3D-x3D-的区别"><a href="#（3）innerText-和-x3D-x3D-innerHTML-x3D-x3D-的区别" class="headerlink" title="（3）innerText 和 &#x3D;&#x3D;innerHTML&#x3D;&#x3D; 的区别"></a>（3）innerText 和 &#x3D;&#x3D;innerHTML&#x3D;&#x3D; 的区别</h6><ul>
 <li><p>innerText 不识别html标签，同时空格和换行也会去掉</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">div.innerText = &#x27;<span class="tag">&lt;<span class="name">strong</span>&gt;</span>今天是：<span class="tag">&lt;/<span class="name">strong</span>&gt;</span> 2019&#x27;;//</span><br></pre></td></tr></table></figure>
-
+<pre><code class="html">div.innerText = &#39;&lt;strong&gt;今天是：&lt;/strong&gt; 2019&#39;;//
+</code></pre>
 <p><img src="E:\sheep\study\notes\images\innerText.png" alt="innerText"></p>
 </li>
 <li><p>innerHTML 识别html标签，同时也保留空格和换行</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">div.innerText = &#x27;<span class="tag">&lt;<span class="name">strong</span>&gt;</span>今天是：<span class="tag">&lt;/<span class="name">strong</span>&gt;</span> 2019&#x27;;//</span><br></pre></td></tr></table></figure>
-
+<pre><code class="html">div.innerText = &#39;&lt;strong&gt;今天是：&lt;/strong&gt; 2019&#39;;//
+</code></pre>
 <img src="E:\sheep\study\notes\images\innerHTML.png" alt="innerHTML" style="zoom:80%;" /></li>
 </ul>
 <h4 id="3-4-2-操作常见元素属性"><a href="#3-4-2-操作常见元素属性" class="headerlink" title="3.4.2 操作常见元素属性"></a>3.4.2 操作常见元素属性</h4><blockquote>
@@ -471,10 +516,22 @@
 </blockquote>
 <ul>
 <li><p>获取元素</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> ldh = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;ldh&#x27;</span>);</span><br><span class="line"><span class="keyword">let</span> zxy = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;zxy&#x27;</span>);</span><br><span class="line"><span class="keyword">let</span> img = <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;img&#x27;</span>);</span><br></pre></td></tr></table></figure>
+<pre><code class="javascript">let ldh = document.getElementById(&#39;ldh&#39;);
+let zxy = document.getElementById(&#39;zxy&#39;);
+let img = document.querySelector(&#39;img&#39;);
+</code></pre>
 </li>
 <li><p>注册事件  处理程序</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">zxy.<span class="property">onclick</span> = <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">    img.<span class="property">src</span> = <span class="string">&#x27;images/zxy.jpg&#x27;</span>;</span><br><span class="line">    img.<span class="property">title</span> = <span class="string">&#x27;张学友思密达&#x27;</span>;</span><br><span class="line">&#125;</span><br><span class="line">ldh.<span class="property">onclick</span> = <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">    img.<span class="property">src</span> = <span class="string">&#x27;images/ldh.jpg&#x27;</span>;</span><br><span class="line">    img.<span class="property">title</span> = <span class="string">&#x27;刘德华&#x27;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<pre><code class="javascript">zxy.onclick = function() &#123;
+    img.src = &#39;images/zxy.jpg&#39;;
+    img.title = &#39;张学友思密达&#39;;
+&#125;
+ldh.onclick = function() &#123;
+    img.src = &#39;images/ldh.jpg&#39;;
+    img.title = &#39;刘德华&#39;;
+&#125;
+</code></pre>
+</li>
 </ul>
 <h4 id="3-4-3-操作表单元素属性"><a href="#3-4-3-操作表单元素属性" class="headerlink" title="3.4.3 操作表单元素属性"></a>3.4.3 操作表单元素属性</h4><blockquote>
 <p>常用的表单元素属性：</p>
@@ -484,15 +541,22 @@
 </blockquote>
 <ul>
 <li><p>获取元素</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> btn = <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;button&#x27;</span>);</span><br><span class="line"><span class="keyword">let</span> input = <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;input&#x27;</span>);</span><br></pre></td></tr></table></figure>
+<pre><code class="javascript">let btn = document.querySelector(&#39;button&#39;);
+let input = document.querySelector(&#39;input&#39;);
+</code></pre>
 </li>
 <li><p>注册事件 处理程序</p>
 <ul>
 <li><p>&#x3D;&#x3D;表单里面的值&#x3D;&#x3D; 文字内容是通过 &#x3D;&#x3D;value&#x3D;&#x3D; 来修改的</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">btn.<span class="property">onclick</span> = <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">	input.<span class="property">value</span> = <span class="string">&#x27;被点击了&#x27;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="javascript">btn.onclick = function() &#123;
+    input.value = &#39;被点击了&#39;;
+&#125;
+</code></pre>
 </li>
 <li><p>如果想要某个表单&#x3D;&#x3D;被禁用&#x3D;&#x3D; 不能再点击用 &#x3D;&#x3D;disabled&#x3D;&#x3D;</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">this</span>.<span class="property">disabled</span> = <span class="literal">true</span>;<span class="comment">// this 指向的是事件函数的调用者 btn</span></span><br></pre></td></tr></table></figure></li>
+<pre><code class="javascript">this.disabled = true;// this 指向的是事件函数的调用者 btn
+</code></pre>
+</li>
 </ul>
 </li>
 </ul>
@@ -505,10 +569,18 @@
 <li><p>&#x3D;&#x3D;行内样式&#x3D;&#x3D;：适合于样式较少的情况，CSS权重比较高</p>
 </li>
 <li><p>获取元素</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> div = <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;div&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<pre><code class="javascript">let div = document.querySelector(&#39;div&#39;)
+</code></pre>
 </li>
 <li><p>注册事件 处理程序</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">div.<span class="property">onclick</span> = <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">	<span class="comment">//div.style</span></span><br><span class="line">	<span class="variable language_">this</span>.<span class="property">style</span>.<span class="property">backgroundColor</span> = <span class="string">&#x27;purple&#x27;</span>;<span class="comment">//点击修改颜色</span></span><br><span class="line">	<span class="variable language_">this</span>.<span class="property">style</span>.<span class="property">width</span> = <span class="string">&#x27;250px&#x27;</span>;<span class="comment">//修改宽度</span></span><br><span class="line">	<span class="variable language_">this</span>.<span class="property">style</span>.<span class="property">display</span> = <span class="string">&#x27;none&#x27;</span>;<span class="comment">//点击隐藏</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<pre><code class="javascript">div.onclick = function() &#123;
+    //div.style
+    this.style.backgroundColor = &#39;purple&#39;;//点击修改颜色
+    this.style.width = &#39;250px&#39;;//修改宽度
+    this.style.display = &#39;none&#39;;//点击隐藏
+&#125;
+</code></pre>
+</li>
 </ul>
 </li>
 <li><p>element.className</p>
@@ -521,10 +593,24 @@
 </blockquote>
 </li>
 <li><p>在 CSS 中 写一个 .change 样式</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.change</span> &#123;</span><br><span class="line">    <span class="attribute">background-color</span>: purple;</span><br><span class="line">    <span class="attribute">color</span>: <span class="number">#fff</span>;</span><br><span class="line">    <span class="attribute">font-size</span>: <span class="number">25px</span>;</span><br><span class="line">    <span class="attribute">margin-top</span>: <span class="number">100px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="css">.change &#123;
+    background-color: purple;
+    color: #fff;
+    font-size: 25px;
+    margin-top: 100px;
+&#125;
+</code></pre>
 </li>
 <li><p>获取元素 注册事件 处理程序</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;first&quot;</span>&gt;</span>文本<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript"><span class="keyword">var</span> test = <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;div&#x27;</span>);</span></span><br><span class="line"><span class="language-javascript">test.<span class="property">onclick</span> = <span class="keyword">function</span>(<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">	<span class="variable language_">this</span>.<span class="property">className</span> = <span class="string">&#x27;first change&#x27;</span>;<span class="comment">// 多类名选择器</span></span></span><br><span class="line"><span class="language-javascript">&#125;</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
+<pre><code class="html">&lt;div class=&quot;first&quot;&gt;文本&lt;/div&gt;
+&lt;script&gt;
+var test = document.querySelector(&#39;div&#39;);
+test.onclick = function() &#123;
+    this.className = &#39;first change&#39;;// 多类名选择器
+&#125;
+&lt;/script&gt;
+</code></pre>
+</li>
 </ul>
 </li>
 </ul>
@@ -535,8 +621,28 @@
 <li>给当前元素设置样式</li>
 <li>注意顺序不能颠倒，先干掉其他人，再设置自己</li>
 </ul>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">button</span>&gt;</span>按钮1<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">button</span>&gt;</span>按钮2<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">button</span>&gt;</span>按钮3<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">button</span>&gt;</span>按钮4<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">button</span>&gt;</span>按钮5<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    <span class="comment">//1.获取所有元素</span></span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">let</span> btns = <span class="variable language_">document</span>.<span class="title function_">querySelectorAll</span>(<span class="string">&#x27;button&#x27;</span>);</span></span><br><span class="line"><span class="language-javascript">    <span class="comment">// btns 得到的是伪数组 里面的每一个元素 btns[i]</span></span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; btns.<span class="property">length</span>; i++) &#123;</span></span><br><span class="line"><span class="language-javascript">        btns[i].<span class="property">onclick</span> = <span class="keyword">function</span>(<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">            <span class="comment">// （1）我们先把所有的按钮背景颜色全部去掉</span></span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">for</span>(<span class="keyword">let</span> j = <span class="number">0</span>; j &lt; btns.<span class="property">length</span>; j++) &#123;</span></span><br><span class="line"><span class="language-javascript">                    btns[j].<span class="property">style</span>.<span class="property">backgroundColor</span> = <span class="string">&#x27;&#x27;</span>;</span></span><br><span class="line"><span class="language-javascript">            &#125;</span></span><br><span class="line"><span class="language-javascript">            <span class="comment">// （2）然后再把选中的按钮背景颜色改为粉色</span></span></span><br><span class="line"><span class="language-javascript">            <span class="variable language_">this</span>.<span class="property">style</span>.<span class="property">backgroundColor</span> = <span class="string">&#x27;pink&#x27;</span>;</span></span><br><span class="line"><span class="language-javascript">        &#125;</span></span><br><span class="line"><span class="language-javascript">    &#125;</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="html">&lt;button&gt;按钮1&lt;/button&gt;
+&lt;button&gt;按钮2&lt;/button&gt;
+&lt;button&gt;按钮3&lt;/button&gt;
+&lt;button&gt;按钮4&lt;/button&gt;
+&lt;button&gt;按钮5&lt;/button&gt;
+&lt;script&gt;
+    //1.获取所有元素
+    let btns = document.querySelectorAll(&#39;button&#39;);
+    // btns 得到的是伪数组 里面的每一个元素 btns[i]
+    for(let i = 0; i &lt; btns.length; i++) &#123;
+        btns[i].onclick = function() &#123;
+            // （1）我们先把所有的按钮背景颜色全部去掉
+            for(let j = 0; j &lt; btns.length; j++) &#123;
+                    btns[j].style.backgroundColor = &#39;&#39;;
+            &#125;
+            // （2）然后再把选中的按钮背景颜色改为粉色
+            this.style.backgroundColor = &#39;pink&#39;;
+        &#125;
+    &#125;
 
+&lt;/script&gt;
+</code></pre>
 <h4 id="3-4-7-自定义属性的操作"><a href="#3-4-7-自定义属性的操作" class="headerlink" title="3.4.7 自定义属性的操作"></a>3.4.7 自定义属性的操作</h4><blockquote>
 <p>自定义属性的目的：为了保存并使用一些不用保存在数据库中直接保存在页面中的数据。</p>
 </blockquote>
@@ -545,7 +651,13 @@
 <ul>
 <li>获取&#x3D;&#x3D;内置&#x3D;&#x3D;属性值（元素本身自带的）</li>
 </ul>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;box&quot;</span> <span class="attr">index</span>=<span class="string">&quot;1&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">let</span> box = <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;div&#x27;</span>);</span></span><br><span class="line"><span class="language-javascript">    <span class="comment">// 打印box属性值 id</span></span></span><br><span class="line"><span class="language-javascript">    <span class="variable language_">console</span>.<span class="title function_">log</span>(div.<span class="property">id</span>);</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="html">&lt;div id=&quot;box&quot; index=&quot;1&quot;&gt;&lt;/div&gt;
+&lt;script&gt;
+    let box = document.querySelector(&#39;div&#39;);
+    // 打印box属性值 id
+    console.log(div.id);
+&lt;/script&gt;
+</code></pre>
 </li>
 <li><p>获取自定义属性</p>
 <ul>
@@ -553,7 +665,9 @@
 <ul>
 <li>主要获取我们自己添加&#x3D;&#x3D;自定义&#x3D;&#x3D;的属性值(index)</li>
 </ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 打印box属性值 index</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(div.<span class="title function_">getAttribute</span>(<span class="string">&#x27;data-index&#x27;</span>));</span><br></pre></td></tr></table></figure>
+<pre><code class="javascript">// 打印box属性值 index
+console.log(div.getAttribute(&#39;data-index&#39;));
+</code></pre>
 </li>
 <li><p>H5 新增方法 &#x3D;&#x3D;element.dataset.index&#x3D;&#x3D; 或 &#x3D;&#x3D;element.dataset[‘index’]&#x3D;&#x3D;</p>
 <ul>
@@ -564,7 +678,15 @@
 <li><p>如果&#x3D;&#x3D;自定义属性里面有多个 -  连接&#x3D;&#x3D;的单词，我们获取的时候采取 &#x3D;&#x3D;驼峰命名法&#x3D;&#x3D;</p>
 </li>
 </ul>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;box&quot;</span> <span class="attr">data-index</span>=<span class="string">&quot;1&quot;</span> <span class="attr">data-list-name</span>=<span class="string">&quot;andy&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">	<span class="variable language_">console</span>.<span class="title function_">log</span>(div.<span class="property">dataset</span>.<span class="property">index</span>);</span></span><br><span class="line"><span class="language-javascript">	<span class="variable language_">console</span>.<span class="title function_">log</span>(div.<span class="property">dataset</span>[<span class="string">&#x27;index&#x27;</span>]);</span></span><br><span class="line"><span class="language-javascript">    <span class="variable language_">console</span>.<span class="title function_">log</span>(div.<span class="property">dataset</span>.<span class="property">listName</span>);</span></span><br><span class="line"><span class="language-javascript">    <span class="variable language_">console</span>.<span class="title function_">log</span>(div.<span class="property">dataset</span>[<span class="string">&#x27;listName&#x27;</span>]);</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
+<pre><code class="html">&lt;div id=&quot;box&quot; data-index=&quot;1&quot; data-list-name=&quot;andy&quot;&gt;&lt;/div&gt;
+&lt;script&gt;
+    console.log(div.dataset.index);
+    console.log(div.dataset[&#39;index&#39;]);
+    console.log(div.dataset.listName);
+    console.log(div.dataset[&#39;listName&#39;]);
+&lt;/script&gt;
+</code></pre>
+</li>
 </ul>
 </li>
 </ul>
@@ -573,18 +695,28 @@
 <ul>
 <li>设置内置属性值</li>
 </ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">div.<span class="property">id</span> = <span class="string">&#x27;text&#x27;</span>;</span><br><span class="line">div.<span class="property">className</span> = <span class="string">&#x27;navs&#x27;</span>;<span class="comment">// 修改类名 class</span></span><br></pre></td></tr></table></figure>
+<pre><code class="javascript">div.id = &#39;text&#39;;
+div.className = &#39;navs&#39;;// 修改类名 class
+</code></pre>
 </li>
 <li><p>&#x3D;&#x3D;element.setAttribute(‘属性’,’值’)&#x3D;&#x3D;</p>
 <ul>
 <li>主要设置自定义属性</li>
 <li>H5 规定自定义属性要以 &#x3D;&#x3D;data-开头&#x3D;&#x3D; 作为属性名并赋值</li>
 </ul>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">	div.<span class="title function_">setAttribute</span>(<span class="string">&#x27;data-index&#x27;</span>,<span class="number">0</span>);</span></span><br><span class="line"><span class="language-javascript">	div.<span class="title function_">setAttribute</span>(<span class="string">&#x27;class&#x27;</span>,<span class="string">&#x27;footer&#x27;</span>);<span class="comment">// 修改类名 class</span></span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
+<pre><code class="html">&lt;div&gt;&lt;/div&gt;
+&lt;script&gt;
+    div.setAttribute(&#39;data-index&#39;,0);
+    div.setAttribute(&#39;class&#39;,&#39;footer&#39;);// 修改类名 class
+&lt;/script&gt;
+</code></pre>
+</li>
 </ul>
 <h5 id="（3）移除属性"><a href="#（3）移除属性" class="headerlink" title="（3）移除属性"></a>（3）移除属性</h5><ul>
 <li><p>element.removeAttribute(‘属性’)</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">div.<span class="title function_">removeAttribute</span>(<span class="string">&#x27;index&#x27;</span>)</span><br></pre></td></tr></table></figure></li>
+<pre><code class="javascript">div.removeAttribute(&#39;index&#39;)
+</code></pre>
+</li>
 </ul>
 <h3 id="3-5-节点操作"><a href="#3-5-节点操作" class="headerlink" title="3.5 节点操作"></a>3.5 节点操作</h3><img src="E:\sheep\study\notes\images\获取元素.png" alt="获取元素" style="zoom:80%;" />
 
@@ -611,7 +743,16 @@
 <li><p>element.parentNode</p>
 <ul>
 <li><p>得到的是离 element 最近的父节点</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">&quot;erweima&quot;</span>&gt;</span>×<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">let</span> erweima = <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;.erweima&#x27;</span>);</span></span><br><span class="line"><span class="language-javascript">    <span class="comment">// 如果找不到父节点就返回 null</span></span></span><br><span class="line"><span class="language-javascript">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;erweima.parentNode&#x27;</span>);<span class="comment">// 获取box</span></span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
+<pre><code class="html">&lt;div class=&quot;box&quot;&gt;
+    &lt;span class=&quot;erweima&quot;&gt;×&lt;/span&gt;
+&lt;/div&gt;
+&lt;script&gt;
+    let erweima = document.querySelector(&#39;.erweima&#39;);
+    // 如果找不到父节点就返回 null
+    console.log(&#39;erweima.parentNode&#39;);// 获取box
+&lt;/script&gt;
+</code></pre>
+</li>
 </ul>
 </li>
 </ul>
@@ -619,13 +760,32 @@
 <li><p>parentNode.childNodes（不提倡）</p>
 <ul>
 <li><p>childNodes &#x3D;&#x3D;得到的所有子节点包括：元素节点、文本节点&#x3D;&#x3D;等等。如果我们只想要获得元素节点，则需要专门处理：</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    <span class="comment">// 获取元素</span></span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">let</span> ul = <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;ul&#x27;</span>);</span></span><br><span class="line"><span class="language-javascript">    <span class="variable language_">console</span>.<span class="title function_">log</span>(ul.<span class="property">childNode</span>);</span></span><br><span class="line"><span class="language-javascript">    <span class="comment">// 只保留元素节点</span></span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; ul.<span class="property">childNodes</span>.<span class="property">length</span>; i++)&#123;</span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">if</span>(ul.<span class="property">childNodes</span>[i].<span class="property">nodeType</span> == <span class="number">1</span>) &#123;</span></span><br><span class="line"><span class="language-javascript">            <span class="variable language_">console</span>.<span class="title function_">log</span>(ul.<span class="property">childNodes</span>[i]);</span></span><br><span class="line"><span class="language-javascript">        &#125;</span></span><br><span class="line"><span class="language-javascript">    &#125;</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
+<pre><code class="html">&lt;ul&gt;
+    &lt;li&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;script&gt;
+    // 获取元素
+    let ul = document.querySelector(&#39;ul&#39;);
+    console.log(ul.childNode);
+    // 只保留元素节点
+    for(let i = 0; i &lt; ul.childNodes.length; i++)&#123;
+        if(ul.childNodes[i].nodeType == 1) &#123;
+            console.log(ul.childNodes[i]);
+        &#125;
+    &#125;
+&lt;/script&gt;
+</code></pre>
+</li>
 </ul>
 </li>
 <li><p>&#x3D;&#x3D;parentNode.children&#x3D;&#x3D;</p>
 <ul>
 <li><p>它是一个&#x3D;&#x3D;只读属性&#x3D;&#x3D;，返回所有的子&#x3D;&#x3D;元素节点&#x3D;&#x3D;。也是我们实际开发常用的。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(ul.<span class="property">children</span>);</span><br></pre></td></tr></table></figure></li>
+<pre><code class="javascript">console.log(ul.children);
+</code></pre>
+</li>
 </ul>
 </li>
 </ul>
@@ -633,24 +793,35 @@
 <li><p>第一个子节点</p>
 <ul>
 <li><p>parentNode.firstChild：包括 文本节点 和 元素节点</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> ul = <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;ul&#x27;</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(ul.<span class="property">firstChild</span>);</span><br></pre></td></tr></table></figure>
+<pre><code class="javascript">let ul = document.querySelector(&#39;ul&#39;);
+console.log(ul.firstChild);
+</code></pre>
 </li>
 <li><p>parentNode.firstElementChild 只返回元素节点</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(ul.<span class="property">firstElementChild</span>;</span><br></pre></td></tr></table></figure>
+<pre><code class="javascript">console.log(ul.firstElementChild;
+</code></pre>
 </li>
 <li><p>&#x3D;&#x3D;parentNode.children[]&#x3D;&#x3D;</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(ul.<span class="property">children</span>[<span class="number">0</span>]);</span><br></pre></td></tr></table></figure></li>
+<pre><code class="javascript">console.log(ul.children[0]);
+</code></pre>
+</li>
 </ul>
 </li>
 <li><p>最后一个子节点</p>
 <ul>
 <li><p>parentNode.lastChild：包括 文本节点 和 元素节点</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> ul = <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;ul&#x27;</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(ul.<span class="property">lastChild</span>);</span><br></pre></td></tr></table></figure>
+<pre><code class="javascript">let ul = document.querySelector(&#39;ul&#39;);
+console.log(ul.lastChild);
+</code></pre>
 </li>
 <li><p>parentNode.lastElementChild 只返回元素节点</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(ul.<span class="property">firstElementChild</span>;</span><br></pre></td></tr></table></figure></li>
+<pre><code class="javascript">console.log(ul.firstElementChild;
+</code></pre>
+</li>
 <li><p>&#x3D;&#x3D;parentNode.children[]&#x3D;&#x3D;</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(ul.<span class="property">children</span>[ul.<span class="property">children</span>.<span class="property">length</span> - <span class="number">1</span>]);</span><br></pre></td></tr></table></figure></li>
+<pre><code class="javascript">console.log(ul.children[ul.children.length - 1]);
+</code></pre>
+</li>
 </ul>
 </li>
 </ul>
@@ -658,19 +829,30 @@
 <li><p>下一个兄弟节点</p>
 <ul>
 <li><p>node.nextSibling：包含元素节点  或者 文本节点等等</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span>我是div<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">span</span>&gt;</span>我是span<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">var</span> div = <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;div&#x27;</span>);</span></span><br><span class="line"><span class="language-javascript">    <span class="variable language_">console</span>.<span class="title function_">log</span>(div.<span class="property">nextSibling</span>);</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="html">&lt;div&gt;我是div&lt;/div&gt;
+&lt;span&gt;我是span&lt;/span&gt;
+&lt;script&gt;
+    var div = document.querySelector(&#39;div&#39;);
+    console.log(div.nextSibling);
+&lt;/script&gt;
+</code></pre>
 </li>
 <li><p>&#x3D;&#x3D;node.nextElementSibling&#x3D;&#x3D;：得到下一个兄弟元素节点</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(div.<span class="property">nextElementSibling</span>);</span><br></pre></td></tr></table></figure></li>
+<pre><code class="javascript">console.log(div.nextElementSibling);
+</code></pre>
+</li>
 </ul>
 </li>
 <li><p>上一个兄弟节点</p>
 <ul>
 <li><p>node.previousSibling：包含元素节点  或者 文本节点等等</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(div.<span class="property">previousSibling</span>);</span><br></pre></td></tr></table></figure>
+<pre><code class="javascript">console.log(div.previousSibling);
+</code></pre>
 </li>
 <li><p>&#x3D;&#x3D;node.previousElementSibling&#x3D;&#x3D;：得到上一个兄弟元素节点</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(div.<span class="property">previousElementSibling</span>);</span><br></pre></td></tr></table></figure></li>
+<pre><code class="javascript">console.log(div.previousElementSibling);
+</code></pre>
+</li>
 </ul>
 </li>
 </ul>
@@ -684,13 +866,16 @@
 <ul>
 <li>创建多个元素效率稍微低一些，但是结构更清晰</li>
 </ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> li = <span class="variable language_">document</span>.<span class="title function_">createElement</span>(<span class="string">&#x27;li&#x27;</span>);</span><br></pre></td></tr></table></figure>
+<pre><code class="javascript">let li = document.createElement(&#39;li&#39;);
+</code></pre>
 </li>
 <li><p>document.innerHTML(‘tagName’);</p>
 <ul>
 <li>创建多个元素效率更高（前提是&#x3D;&#x3D;不要拼接字符串&#x3D;&#x3D;，采取数组形式拼接），结构稍微复杂</li>
 </ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> inner = <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;.inner&#x27;</span>);</span><br><span class="line">inner.<span class="property">innerHTML</span> = <span class="string">&#x27;&lt;a href=&#x27;</span>#<span class="string">&#x27;&gt;百度&lt;/a&gt;&#x27;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="javascript">let inner = document.querySelector(&#39;.inner&#39;);
+inner.innerHTML = &#39;&lt;a href=&#39;#&#39;&gt;百度&lt;/a&gt;&#39;
+</code></pre>
 </li>
 <li><p>document.write(‘tagName’);</p>
 <ul>
@@ -702,10 +887,15 @@
 <li><p>node.appendChild(child) ：将 一个节点（child）&#x3D;&#x3D;追加&#x3D;&#x3D;到指定父节点（node）列表&#x3D;&#x3D;末尾&#x3D;&#x3D;</p>
 </li>
 <li><p>appendChild 不支持追加字符串的子元素，insertAdjacentHTML 支持追加字符串的元素</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> ul = <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;ul&#x27;</span>);</span><br><span class="line">ul.<span class="title function_">appendChild</span>(li);</span><br></pre></td></tr></table></figure>
+<pre><code class="javascript">let ul = document.querySelector(&#39;ul&#39;);
+ul.appendChild(li);
+</code></pre>
 </li>
 <li><p>node.insertBefore(child, 指定元素)：将 一个节点（child）&#x3D;&#x3D;追加&#x3D;&#x3D;到指定&#x3D;&#x3D;子&#x3D;&#x3D;节点&#x3D;&#x3D;前面&#x3D;&#x3D;</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> lili = <span class="variable language_">document</span>.<span class="title function_">createElement</span>(<span class="string">&#x27;li&#x27;</span>);</span><br><span class="line">ul.<span class="title function_">insertBefore</span>(lili, ul.<span class="property">children</span>[<span class="number">0</span>]);</span><br></pre></td></tr></table></figure></li>
+<pre><code class="javascript">let lili = document.createElement(&#39;li&#39;);
+ul.insertBefore(lili, ul.children[0]);
+</code></pre>
+</li>
 </ul>
 </li>
 </ul>
@@ -713,7 +903,10 @@
 <li><p>node.removeChild(child)</p>
 <ul>
 <li><p>从 DOM 中删除一个子结点，返回删除的节点</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> ul = <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;ul&#x27;</span>);</span><br><span class="line">ul.<span class="title function_">removeChild</span>(ul.<span class="property">children</span>[<span class="number">0</span>]);</span><br></pre></td></tr></table></figure></li>
+<pre><code class="javascript">let ul = document.querySelector(&#39;ul&#39;);
+ul.removeChild(ul.children[0]);
+</code></pre>
+</li>
 </ul>
 </li>
 </ul>
@@ -728,13 +921,18 @@
 <li><p>若&#x3D;&#x3D;括号参数&#x3D;&#x3D;为&#x3D;&#x3D;空或者为false&#x3D;&#x3D;，则是浅拷贝，即只克隆复制节点本身，不克隆里面的子节点；</p>
 </li>
 <li><p>若想要克隆标签及内容，只需在括号里写 true ：&#x3D;&#x3D;node.cloneNode(true)&#x3D;&#x3D;</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> ul = <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;ul&#x27;</span>);</span><br><span class="line"><span class="keyword">let</span> lili = ul.<span class="property">children</span>[<span class="number">0</span>].<span class="title function_">cloneNode</span>()；</span><br></pre></td></tr></table></figure></li>
+<pre><code class="javascript">let ul = document.querySelector(&#39;ul&#39;);
+let lili = ul.children[0].cloneNode()；
+</code></pre>
+</li>
 </ul>
 </li>
 <li><p>添加节点位置</p>
 <ul>
 <li><p>同 3.5.3 添加节点（有两种方法）</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ul.<span class="title function_">appendChild</span>(lili)</span><br></pre></td></tr></table></figure></li>
+<pre><code class="javascript">ul.appendChild(lili)
+</code></pre>
+</li>
 </ul>
 </li>
 </ul>
@@ -748,7 +946,9 @@
 <li><p>position 是插入的位置</p>
 </li>
 <li><p>text 是要被解析为 HTML 和 XML，并插入到 DOM 树中的字符串</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">element.<span class="title function_">insertAdjacentHTML</span>(position,text);</span><br></pre></td></tr></table></figure></li>
+<pre><code class="javascript">element.insertAdjacentHTML(position,text);
+</code></pre>
+</li>
 </ul>
 </li>
 <li><p>参数</p>
@@ -772,7 +972,10 @@
 </ul>
 </li>
 <li><p>代码实例：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> html = <span class="string">&#x27;&lt;div id=&quot;two&quot;&gt;two&lt;/div&gt;&#x27;</span>;</span><br><span class="line">div.<span class="title function_">insertAdjacentHTML</span>(<span class="string">&#x27;beforeend&#x27;</span>,html);</span><br></pre></td></tr></table></figure></li>
+<pre><code class="javascript">let html = &#39;&lt;div id=&quot;two&quot;&gt;two&lt;/div&gt;&#39;;
+div.insertAdjacentHTML(&#39;beforeend&#39;,html);
+</code></pre>
+</li>
 </ul>
 <h3 id="3-6-事件高级"><a href="#3-6-事件高级" class="headerlink" title="3.6 事件高级"></a>3.6 事件高级</h3><h4 id="3-6-1-注册事件（绑定事件）"><a href="#3-6-1-注册事件（绑定事件）" class="headerlink" title="3.6.1 注册事件（绑定事件）"></a>3.6.1 注册事件（绑定事件）</h4><blockquote>
 <p>给元素添加事件，称为注册事件。</p>
@@ -782,7 +985,14 @@
 <li><p>利用 on 开头的事件 </p>
 </li>
 <li><p>&#x3D;&#x3D;特点&#x3D;&#x3D;：注册事件的&#x3D;&#x3D;唯一性&#x3D;&#x3D;：同一个元素同一个事件只能执行一次</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">onclick</span>=<span class="string">&quot;alert(&#x27;hi~&#x27;)&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    btn.<span class="property">onclick</span> = <span class="keyword">function</span>(<span class="params"></span>)&#123;</span></span><br><span class="line"><span class="language-javascript">	<span class="title function_">alert</span>(<span class="string">&#x27;hi~&#x27;</span>)</span></span><br><span class="line"><span class="language-javascript">	&#125;</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
+<pre><code class="html">&lt;button onclick=&quot;alert(&#39;hi~&#39;)&quot;&gt;&lt;/button&gt;
+&lt;script&gt;
+    btn.onclick = function()&#123;
+    alert(&#39;hi~&#39;)
+    &#125;
+&lt;/script&gt;
+</code></pre>
+</li>
 </ul>
 <h5 id="（2）方法监听注册方式"><a href="#（2）方法监听注册方式" class="headerlink" title="（2）方法监听注册方式"></a>（2）方法监听注册方式</h5><ul>
 <li><p>w3c 标准 &#x3D;&#x3D;推荐&#x3D;&#x3D;方式</p>
@@ -797,17 +1007,35 @@
 <li><p>&#x3D;&#x3D;listener&#x3D;&#x3D;：事件处理函数，事件发生时，会调用该监听函数</p>
 </li>
 <li><p>&#x3D;&#x3D;useCapture&#x3D;&#x3D;：可选参数，是一个布尔值，默认为 false </p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">btn.<span class="title function_">addEventListener</span>(<span class="string">&#x27;click&#x27;</span>,<span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">	<span class="title function_">alert</span>(<span class="string">&#x27;hi~&#x27;</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></li>
+<pre><code class="javascript">btn.addEventListener(&#39;click&#39;,function()&#123;
+    alert(&#39;hi~&#39;)
+&#125;)
+</code></pre>
+</li>
 </ul>
 </li>
 </ul>
 <h4 id="3-6-2-删除事件（解绑事件）"><a href="#3-6-2-删除事件（解绑事件）" class="headerlink" title="3.6.2 删除事件（解绑事件）"></a>3.6.2 删除事件（解绑事件）</h4><h5 id="（1）传统方式删除事件"><a href="#（1）传统方式删除事件" class="headerlink" title="（1）传统方式删除事件"></a>（1）传统方式删除事件</h5><ul>
 <li><p>eventTarget.onclick &#x3D; null;</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> div = <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;div&#x27;</span>);</span><br><span class="line">div.<span class="property">onclick</span> = <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">	<span class="title function_">alert</span>(<span class="string">&#x27;hi~&#x27;</span>);</span><br><span class="line">	<span class="comment">// 删除事件</span></span><br><span class="line">	div.<span class="property">onclick</span> = <span class="literal">null</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<pre><code class="javascript">let div = document.querySelector(&#39;div&#39;);
+div.onclick = function() &#123;
+    alert(&#39;hi~&#39;);
+    // 删除事件
+    div.onclick = null;
+&#125;
+</code></pre>
+</li>
 </ul>
 <h5 id="（2）方法监听注册方式删除事件"><a href="#（2）方法监听注册方式删除事件" class="headerlink" title="（2）方法监听注册方式删除事件"></a>（2）方法监听注册方式删除事件</h5><ul>
 <li><p>eventTarget.removeEventListener(type,listener[,useCapture]);</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">btn.<span class="title function_">addEventListener</span>(<span class="string">&#x27;click&#x27;</span>,fn);<span class="comment">// 里面的 fn 不需要调用 所以不加小括号</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">fn</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="title function_">alert</span>(<span class="string">&#x27;hi~&#x27;</span>);</span><br><span class="line">    <span class="comment">// 删除事件</span></span><br><span class="line">    btn.<span class="title function_">removeEventListener</span>(<span class="string">&#x27;click&#x27;</span>,fn);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<pre><code class="javascript">btn.addEventListener(&#39;click&#39;,fn);// 里面的 fn 不需要调用 所以不加小括号
+function fn() &#123;
+    alert(&#39;hi~&#39;);
+    // 删除事件
+    btn.removeEventListener(&#39;click&#39;,fn);
+&#125;
+</code></pre>
+</li>
 </ul>
 <h4 id="3-6-3-DOM事件流"><a href="#3-6-3-DOM事件流" class="headerlink" title="3.6.3 DOM事件流"></a>3.6.3 DOM事件流</h4><ul>
 <li><p>&#x3D;&#x3D;事件流&#x3D;&#x3D;描述的是&#x3D;&#x3D;从页面中接收事件的顺序&#x3D;&#x3D;</p>
@@ -835,7 +1063,17 @@
 <li><p>如果addEventListener &#x3D;&#x3D;第三个参数是 true&#x3D;&#x3D; 那么则处于&#x3D;&#x3D;捕获阶段&#x3D;&#x3D;</p>
 </li>
 <li><p>document -&gt; html -&gt; body -&gt; father -&gt; son</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 先输出 father 再输出 son</span></span><br><span class="line"><span class="keyword">let</span> son = <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;.son&#x27;</span>);</span><br><span class="line">son.<span class="title function_">addEventListener</span>(<span class="string">&#x27;click&#x27;</span>, <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="title function_">alert</span>(<span class="string">&#x27;son&#x27;</span>);</span><br><span class="line">&#125;, <span class="literal">true</span>);</span><br><span class="line"><span class="keyword">let</span> father = <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;.father&#x27;</span>);</span><br><span class="line">father.<span class="title function_">addEventListener</span>(<span class="string">&#x27;click&#x27;</span>, <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="title function_">alert</span>(<span class="string">&#x27;father&#x27;</span>);</span><br><span class="line">&#125;, <span class="literal">true</span>);</span><br></pre></td></tr></table></figure></li>
+<pre><code class="javascript">// 先输出 father 再输出 son
+let son = document.querySelector(&#39;.son&#39;);
+son.addEventListener(&#39;click&#39;, function() &#123;
+    alert(&#39;son&#39;);
+&#125;, true);
+let father = document.querySelector(&#39;.father&#39;);
+father.addEventListener(&#39;click&#39;, function() &#123;
+    alert(&#39;father&#39;);
+&#125;, true);
+</code></pre>
+</li>
 </ul>
 </li>
 <li><p>冒泡阶段 </p>
@@ -843,7 +1081,20 @@
 <li><p>如果addEventListener &#x3D;&#x3D;第三个参数是 false 或者 省略&#x3D;&#x3D; 那么则处于&#x3D;&#x3D;冒泡阶段&#x3D;&#x3D;</p>
 </li>
 <li><p>son -&gt; father -&gt;body -&gt; html -&gt; document</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 先输出 son 再输出 father 最后是 document</span></span><br><span class="line"><span class="keyword">let</span> son = <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;.son&#x27;</span>);</span><br><span class="line">son.<span class="title function_">addEventListener</span>(<span class="string">&#x27;click&#x27;</span>, <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="title function_">alert</span>(<span class="string">&#x27;son&#x27;</span>);</span><br><span class="line">&#125;, <span class="literal">false</span>);</span><br><span class="line"><span class="keyword">let</span> father = <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;.father&#x27;</span>);</span><br><span class="line">father.<span class="title function_">addEventListener</span>(<span class="string">&#x27;click&#x27;</span>, <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="title function_">alert</span>(<span class="string">&#x27;father&#x27;</span>);</span><br><span class="line">&#125;, <span class="literal">false</span>);</span><br><span class="line"><span class="variable language_">document</span>.<span class="title function_">addEventListener</span>(<span class="string">&#x27;click&#x27;</span>, <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="title function_">alert</span>(<span class="string">&#x27;document&#x27;</span>);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></li>
+<pre><code class="javascript">// 先输出 son 再输出 father 最后是 document
+let son = document.querySelector(&#39;.son&#39;);
+son.addEventListener(&#39;click&#39;, function() &#123;
+    alert(&#39;son&#39;);
+&#125;, false);
+let father = document.querySelector(&#39;.father&#39;);
+father.addEventListener(&#39;click&#39;, function() &#123;
+    alert(&#39;father&#39;);
+&#125;, false);
+document.addEventListener(&#39;click&#39;, function() &#123;
+    alert(&#39;document&#39;);
+&#125;)
+</code></pre>
+</li>
 </ul>
 </li>
 </ul>
@@ -866,25 +1117,73 @@
 <h4 id="3-6-5-阻止事件冒泡"><a href="#3-6-5-阻止事件冒泡" class="headerlink" title="3.6.5 阻止事件冒泡"></a>3.6.5 阻止事件冒泡</h4><blockquote>
 <p>事件对象阻止默认行为</p>
 <p>让链接不跳转或让提交按钮不提交</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;http://www.baidu.com&quot;</span>&gt;</span>百度<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">	<span class="keyword">let</span> a = <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;a&#x27;</span>);</span></span><br><span class="line"><span class="language-javascript">	a.<span class="title function_">addEventListener</span>(<span class="string">&#x27;click&#x27;</span>,<span class="keyword">function</span>(<span class="params">e</span>)&#123;</span></span><br><span class="line"><span class="language-javascript">		e.<span class="property">preventDefault</span>;<span class="comment">// 阻止链接跳转</span></span></span><br><span class="line"><span class="language-javascript">	&#125;)</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="html">&lt;a href=&quot;http://www.baidu.com&quot;&gt;百度&lt;/a&gt;
+&lt;script&gt;
+    let a = document.querySelector(&#39;a&#39;);
+    a.addEventListener(&#39;click&#39;,function(e)&#123;
+        e.preventDefault;// 阻止链接跳转
+    &#125;)
+&lt;/script&gt;
+</code></pre>
 </blockquote>
 <h5 id="阻止事件冒泡的方式"><a href="#阻止事件冒泡的方式" class="headerlink" title="阻止事件冒泡的方式"></a>阻止事件冒泡的方式</h5><ul>
 <li><p>利用事件对象里面的 stopPropagation() 方法</p>
 <p><code>e.stopPropagation()</code></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 先输出 son 再输出 father 最后是 document</span></span><br><span class="line"><span class="keyword">let</span> son = <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;.son&#x27;</span>);</span><br><span class="line">son.<span class="title function_">addEventListener</span>(<span class="string">&#x27;click&#x27;</span>, <span class="keyword">function</span>(<span class="params">e</span>) &#123;</span><br><span class="line">    <span class="title function_">alert</span>(<span class="string">&#x27;son&#x27;</span>);</span><br><span class="line">    e.<span class="title function_">stopPropagation</span>();<span class="comment">// 阻止冒泡 后面的 father 和 document 都不会再响应了</span></span><br><span class="line">&#125;, <span class="literal">false</span>);</span><br><span class="line"><span class="keyword">let</span> father = <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;.father&#x27;</span>);</span><br><span class="line">father.<span class="title function_">addEventListener</span>(<span class="string">&#x27;click&#x27;</span>, <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="title function_">alert</span>(<span class="string">&#x27;father&#x27;</span>);</span><br><span class="line">&#125;, <span class="literal">false</span>);</span><br><span class="line"><span class="variable language_">document</span>.<span class="title function_">addEventListener</span>(<span class="string">&#x27;click&#x27;</span>, <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="title function_">alert</span>(<span class="string">&#x27;document&#x27;</span>);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></li>
+<pre><code class="javascript">// 先输出 son 再输出 father 最后是 document
+let son = document.querySelector(&#39;.son&#39;);
+son.addEventListener(&#39;click&#39;, function(e) &#123;
+    alert(&#39;son&#39;);
+    e.stopPropagation();// 阻止冒泡 后面的 father 和 document 都不会再响应了
+&#125;, false);
+let father = document.querySelector(&#39;.father&#39;);
+father.addEventListener(&#39;click&#39;, function() &#123;
+    alert(&#39;father&#39;);
+&#125;, false);
+document.addEventListener(&#39;click&#39;, function() &#123;
+    alert(&#39;document&#39;);
+&#125;)
+</code></pre>
+</li>
 </ul>
 <h4 id="3-6-6-事件委托（代理、委派）"><a href="#3-6-6-事件委托（代理、委派）" class="headerlink" title="3.6.6 事件委托（代理、委派）"></a>3.6.6 事件委托（代理、委派）</h4><h5 id="（1）事件委托的原理"><a href="#（1）事件委托的原理" class="headerlink" title="（1）事件委托的原理"></a>（1）事件委托的原理</h5><p>不是给每个子结点单独设置事件监听器，而是将事件监听器设置在其父节点上，然后利用冒泡原理影响设置每个子结点。</p>
 <h5 id="（2）事件委托的作用"><a href="#（2）事件委托的作用" class="headerlink" title="（2）事件委托的作用"></a>（2）事件委托的作用</h5><p>只操作了一次DOM，提高了程序的性能。</p>
 <h5 id="（3）代码实现"><a href="#（3）代码实现" class="headerlink" title="（3）代码实现"></a>（3）代码实现</h5><blockquote>
 <p>当我们点击 li 的时候，因为事件冒泡 所以也会 click 到父节点 ul ，从而触发 alert 事件，而不用给每个 li 单独绑定事件</p>
 </blockquote>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>hello<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>hello<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>hello<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>hello<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    <span class="comment">//获取父节点</span></span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">let</span> ul = <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;ul&#x27;</span>);</span></span><br><span class="line"><span class="language-javascript">    <span class="comment">//给父节点绑定事件</span></span></span><br><span class="line"><span class="language-javascript">    ul.<span class="title function_">addEventListener</span>(<span class="string">&#x27;click&#x27;</span>,<span class="keyword">function</span>(<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">        <span class="title function_">alert</span>(<span class="string">&#x27;hello&#x27;</span>)</span></span><br><span class="line"><span class="language-javascript">    &#125;)</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
+<pre><code class="html">&lt;ul&gt;
+    &lt;li&gt;hello&lt;/li&gt;
+    &lt;li&gt;hello&lt;/li&gt;
+    &lt;li&gt;hello&lt;/li&gt;
+    &lt;li&gt;hello&lt;/li&gt;
+&lt;/ul&gt;
+&lt;script&gt;
+    //获取父节点
+    let ul = document.querySelector(&#39;ul&#39;);
+    //给父节点绑定事件
+    ul.addEventListener(&#39;click&#39;,function() &#123;
+        alert(&#39;hello&#39;)
+    &#125;)
+&lt;/script&gt;
+</code></pre>
 <blockquote>
 <p>点击 li 改变 li 的背景颜色：</p>
 </blockquote>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>hello<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>hello<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>hello<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>hello<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    <span class="comment">//获取父节点</span></span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">let</span> ul = <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;ul&#x27;</span>);</span></span><br><span class="line"><span class="language-javascript">    <span class="comment">//给父节点绑定事件</span></span></span><br><span class="line"><span class="language-javascript">    ul.<span class="title function_">addEventListener</span>(<span class="string">&#x27;click&#x27;</span>,<span class="keyword">function</span>(<span class="params">e</span>) &#123;</span></span><br><span class="line"><span class="language-javascript">        <span class="comment">// e.target 这个可以得到我们点击的对象</span></span></span><br><span class="line"><span class="language-javascript">        e.<span class="property">target</span>.<span class="property">style</span>.<span class="property">backgroundColor</span> = <span class="string">&#x27;pink&#x27;</span>;</span></span><br><span class="line"><span class="language-javascript">    &#125;)</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
+<pre><code class="html">&lt;ul&gt;
+    &lt;li&gt;hello&lt;/li&gt;
+    &lt;li&gt;hello&lt;/li&gt;
+    &lt;li&gt;hello&lt;/li&gt;
+    &lt;li&gt;hello&lt;/li&gt;
+&lt;/ul&gt;
+&lt;script&gt;
+    //获取父节点
+    let ul = document.querySelector(&#39;ul&#39;);
+    //给父节点绑定事件
+    ul.addEventListener(&#39;click&#39;,function(e) &#123;
+        // e.target 这个可以得到我们点击的对象
+        e.target.style.backgroundColor = &#39;pink&#39;;
+    &#125;)
+&lt;/script&gt;
+</code></pre>
 <h4 id="3-6-7-常用的鼠标事件"><a href="#3-6-7-常用的鼠标事件" class="headerlink" title="3.6.7 常用的鼠标事件"></a>3.6.7 常用的鼠标事件</h4><h5 id="（1）鼠标事件"><a href="#（1）鼠标事件" class="headerlink" title="（1）鼠标事件"></a>（1）鼠标事件</h5><h6 id="1-常用的鼠标事件"><a href="#1-常用的鼠标事件" class="headerlink" title="1. 常用的鼠标事件"></a>1. 常用的鼠标事件</h6><p><img src="E:\sheep\study\notes\images\常见的鼠标事件.png" alt="常见的鼠标事件"></p>
 <ul>
 <li>&#x3D;&#x3D;mouseenter 和 mouseover（mouseleave 和 mouseout） 的区别&#x3D;&#x3D;<ul>
@@ -902,10 +1201,14 @@
 <h6 id="2-禁止鼠标右键菜单-了解"><a href="#2-禁止鼠标右键菜单-了解" class="headerlink" title="2. 禁止鼠标右键菜单(了解)"></a>2. 禁止鼠标右键菜单(了解)</h6><blockquote>
 <p>&#x3D;&#x3D;contextmenu&#x3D;&#x3D; 主要控制应该何时显示上下文菜单，主要用于程序员&#x3D;&#x3D;取消默认的上下文菜单&#x3D;&#x3D;(禁用右键菜单)</p>
 </blockquote>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">document</span>.<span class="title function_">addEventListener</span>(<span class="string">&#x27;contextmenu&#x27;</span>,<span class="keyword">function</span>(<span class="params">e</span>) &#123;</span><br><span class="line">	e.<span class="title function_">preventDefault</span>();</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-<h6 id="3-禁止选中文字-了解"><a href="#3-禁止选中文字-了解" class="headerlink" title="3. 禁止选中文字(了解)"></a>3. 禁止选中文字(了解)</h6><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">document</span>.<span class="title function_">addEventListener</span>(<span class="string">&#x27;selectstart&#x27;</span>,<span class="keyword">function</span>(<span class="params">e</span>) &#123;</span><br><span class="line">	e.<span class="title function_">preventDefault</span>();</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
+<pre><code class="javascript">document.addEventListener(&#39;contextmenu&#39;,function(e) &#123;
+    e.preventDefault();
+&#125;)
+</code></pre>
+<h6 id="3-禁止选中文字-了解"><a href="#3-禁止选中文字-了解" class="headerlink" title="3. 禁止选中文字(了解)"></a>3. 禁止选中文字(了解)</h6><pre><code class="javascript">document.addEventListener(&#39;selectstart&#39;,function(e) &#123;
+    e.preventDefault();
+&#125;)
+</code></pre>
 <h5 id="（2）鼠标事件对象"><a href="#（2）鼠标事件对象" class="headerlink" title="（2）鼠标事件对象"></a>（2）鼠标事件对象</h5><blockquote>
 <p>&#x3D;&#x3D;event&#x3D;&#x3D; 对象代表事件的状态，跟事件相关的一系列信息的集合。现阶段我们主要用鼠标事件对象 &#x3D;&#x3D;MouseEvent&#x3D;&#x3D; 和键盘事件对象 &#x3D;&#x3D;KeyboardEvent&#x3D;&#x3D;。</p>
 </blockquote>
@@ -913,7 +1216,34 @@
 
 <ul>
 <li><p>案例 - 跟随鼠标的天使</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="language-css"></span></span><br><span class="line"><span class="language-css">        <span class="selector-tag">img</span> &#123;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">position</span>: absolute;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">top</span>: <span class="number">2px</span>;</span></span><br><span class="line"><span class="language-css">        &#125;</span></span><br><span class="line"><span class="language-css">    </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;images/angel.gif&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">var</span> pic = <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;img&#x27;</span>);</span></span><br><span class="line"><span class="language-javascript">        <span class="variable language_">document</span>.<span class="title function_">addEventListener</span>(<span class="string">&#x27;mousemove&#x27;</span>, <span class="keyword">function</span>(<span class="params">e</span>) &#123;</span></span><br><span class="line"><span class="language-javascript">            <span class="comment">// 1. mousemove只要我们鼠标移动1px 就会触发这个事件</span></span></span><br><span class="line"><span class="language-javascript">            <span class="comment">// console.log(1);</span></span></span><br><span class="line"><span class="language-javascript">            <span class="comment">// 2.核心原理： 每次鼠标移动，我们都会获得最新的鼠标坐标， 把这个x和y坐标做为图片的top和left 值就可以移动图片</span></span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">var</span> x = e.<span class="property">pageX</span>;</span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">var</span> y = e.<span class="property">pageY</span>;</span></span><br><span class="line"><span class="language-javascript">            <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;x坐标是&#x27;</span> + x, <span class="string">&#x27;y坐标是&#x27;</span> + y);</span></span><br><span class="line"><span class="language-javascript">            <span class="comment">//3 . 千万不要忘记给left 和top 添加px 单位</span></span></span><br><span class="line"><span class="language-javascript">            pic.<span class="property">style</span>.<span class="property">left</span> = x - <span class="number">50</span> + <span class="string">&#x27;px&#x27;</span>;</span></span><br><span class="line"><span class="language-javascript">            pic.<span class="property">style</span>.<span class="property">top</span> = y - <span class="number">40</span> + <span class="string">&#x27;px&#x27;</span>;</span></span><br><span class="line"><span class="language-javascript">        &#125;);</span></span><br><span class="line"><span class="language-javascript">    </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
+<pre><code class="html">&lt;head&gt;
+&lt;style&gt;
+        img &#123;
+            position: absolute;
+            top: 2px;
+        &#125;
+    &lt;/style&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+    &lt;img src=&quot;images/angel.gif&quot; alt=&quot;&quot;&gt;
+    &lt;script&gt;
+        var pic = document.querySelector(&#39;img&#39;);
+        document.addEventListener(&#39;mousemove&#39;, function(e) &#123;
+            // 1. mousemove只要我们鼠标移动1px 就会触发这个事件
+            // console.log(1);
+            // 2.核心原理： 每次鼠标移动，我们都会获得最新的鼠标坐标， 把这个x和y坐标做为图片的top和left 值就可以移动图片
+            var x = e.pageX;
+            var y = e.pageY;
+            console.log(&#39;x坐标是&#39; + x, &#39;y坐标是&#39; + y);
+            //3 . 千万不要忘记给left 和top 添加px 单位
+            pic.style.left = x - 50 + &#39;px&#39;;
+            pic.style.top = y - 40 + &#39;px&#39;;
+        &#125;);
+    &lt;/script&gt;
+&lt;/body&gt;
+</code></pre>
+</li>
 </ul>
 <h4 id="3-6-8-常用的键盘事件"><a href="#3-6-8-常用的键盘事件" class="headerlink" title="3.6.8 常用的键盘事件"></a>3.6.8 常用的键盘事件</h4><h5 id="（1）常用键盘事件"><a href="#（1）常用键盘事件" class="headerlink" title="（1）常用键盘事件"></a>（1）常用键盘事件</h5><blockquote>
 <p>三个事件同时存在时的顺序： keydown – keypress – keyup</p>
@@ -926,7 +1256,11 @@
 <li><p>利用 keyCode 判断用户按了哪个键</p>
 <ul>
 <li><p>keyup 和 keydown 事件不区分字母大小写：按下 a 和 A 得到的都是65</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">document</span>.<span class="title function_">addEventListener</span>(<span class="string">&#x27;keyup&#x27;</span>,<span class="keyword">function</span>(<span class="params">e</span>)&#123;</span><br><span class="line">	<span class="variable language_">console</span>.<span class="title function_">log</span>(e.<span class="property">keyCode</span>);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></li>
+<pre><code class="javascript">document.addEventListener(&#39;keyup&#39;,function(e)&#123;
+    console.log(e.keyCode);
+&#125;)
+</code></pre>
+</li>
 <li><p>keypress 事件区分字母大小写：按下 A 得到65；按 a 得到97</p>
 </li>
 </ul>
@@ -955,12 +1289,19 @@
 <li><p>window.onload </p>
 </li>
 <li><p>但这种传统的注册事件方式只能写一次，若写了多个，以最后一个为准</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">window</span>.<span class="property">onload</span> = <span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">	...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="javascript">window.onload = function()&#123;
+    ...
+&#125;
+</code></pre>
 </li>
 <li><p>&#x3D;&#x3D;window.addEventListener(‘load’, function() {})&#x3D;&#x3D;</p>
 <ul>
 <li><p>可以写任意个事件，没有限制</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">window</span>.<span class="title function_">addEventListener</span>(<span class="string">&#x27;load&#x27;</span>, <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">	...</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></li>
+<pre><code class="javascript">window.addEventListener(&#39;load&#39;, function() &#123;
+    ...
+&#125;)
+</code></pre>
+</li>
 </ul>
 </li>
 <li><p>document.addEventlistener(‘DOMContentLoaded’,function() {})</p>
@@ -977,13 +1318,23 @@
 <li><p>resize</p>
 <ul>
 <li><p>使用方式</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">window</span>.<span class="property">onresize</span> = <span class="keyword">function</span>(<span class="params"></span>) &#123;&#125;</span><br><span class="line"><span class="variable language_">window</span>.<span class="title function_">addEventListener</span>(<span class="string">&#x27;resize&#x27;</span>,<span class="keyword">function</span>(<span class="params"></span>) &#123;&#125;)</span><br></pre></td></tr></table></figure>
+<pre><code class="javascript">window.onresize = function() &#123;&#125;
+window.addEventListener(&#39;resize&#39;,function() &#123;&#125;)
+</code></pre>
 </li>
 <li><p>常用场景</p>
 <blockquote>
 <p>响应式布局：当我们把浏览器窗口缩小到一定大小时，隐藏某些节点</p>
 </blockquote>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> div = <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;div&#x27;</span>);</span><br><span class="line">windows.<span class="title function_">addEventLisener</span>(<span class="string">&#x27;resize&#x27;</span>,<span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">	<span class="comment">// window.innerWidth 为浏览器窗口宽度</span></span><br><span class="line">    <span class="keyword">if</span> (<span class="variable language_">window</span>.<span class="property">innerWidth</span> &lt;= <span class="number">800</span>) &#123;</span><br><span class="line">        div.<span class="property">style</span>.<span class="property">display</span> = <span class="string">&#x27;none&#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></li>
+<pre><code class="javascript">let div = document.querySelector(&#39;div&#39;);
+windows.addEventLisener(&#39;resize&#39;,function() &#123;
+    // window.innerWidth 为浏览器窗口宽度
+    if (window.innerWidth &lt;= 800) &#123;
+        div.style.display = &#39;none&#39;;
+    &#125;
+&#125;)
+</code></pre>
+</li>
 </ul>
 </li>
 </ul>
@@ -998,16 +1349,30 @@
 <li><p>延时时间单位是毫秒，可以省略</p>
 </li>
 <li><p>这个调用函数可以直接写函数，还可以写函数名</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">window</span>.<span class="built_in">setTimeout</span>(调用函数，[延迟的毫秒数]);</span><br></pre></td></tr></table></figure></li>
+<pre><code class="javascript">window.setTimeout(调用函数，[延迟的毫秒数]);
+</code></pre>
+</li>
 </ul>
 </li>
 <li><p>&#x3D;&#x3D;停止定时器 clearTimeout()&#x3D;&#x3D;</p>
 <ul>
 <li><p>语法规范</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">window</span>.<span class="built_in">clearTimeout</span>(timeoutID)</span><br></pre></td></tr></table></figure>
+<pre><code class="javascript">window.clearTimeout(timeoutID)
+</code></pre>
 </li>
 <li><p>实际运用</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">button</span>&gt;</span>点击停止计时器<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">let</span> btn = <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;button&#x27;</span>);</span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">let</span> timer = <span class="built_in">setTimeout</span>(<span class="keyword">function</span>(<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;boom!&#x27;</span>)</span></span><br><span class="line"><span class="language-javascript">    &#125;,<span class="number">5000</span>);</span></span><br><span class="line"><span class="language-javascript">    btn.<span class="title function_">addEventListener</span>(<span class="string">&#x27;click&#x27;</span>,<span class="keyword">function</span>(<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">        <span class="built_in">clearTimeout</span>(timer);<span class="comment">// 停止计时器</span></span></span><br><span class="line"><span class="language-javascript">    &#125;)</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
+<pre><code class="html">&lt;button&gt;点击停止计时器&lt;/button&gt;
+&lt;script&gt;
+    let btn = document.querySelector(&#39;button&#39;);
+    let timer = setTimeout(function() &#123;
+        console.log(&#39;boom!&#39;)
+    &#125;,5000);
+    btn.addEventListener(&#39;click&#39;,function() &#123;
+        clearTimeout(timer);// 停止计时器
+    &#125;)
+&lt;/script&gt;
+</code></pre>
+</li>
 </ul>
 </li>
 </ul>
@@ -1024,16 +1389,35 @@
 </ul>
 </li>
 <li><p>这个调用函数可以直接写函数，还可以写函数名</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">window</span>.<span class="built_in">setInterval</span>(回调函数，[间隔的毫秒数]);</span><br></pre></td></tr></table></figure></li>
+<pre><code class="javascript">window.setInterval(回调函数，[间隔的毫秒数]);
+</code></pre>
+</li>
 </ul>
 </li>
 <li><p>&#x3D;&#x3D;停止定时器 clearInterval()&#x3D;&#x3D;</p>
 <ul>
 <li><p>语法规范</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">window</span>.<span class="built_in">clearInterval</span>(timeoutID)</span><br></pre></td></tr></table></figure>
+<pre><code class="javascript">window.clearInterval(timeoutID)
+</code></pre>
 </li>
 <li><p>实际运用</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">class</span>=<span class="string">&quot;begin&quot;</span>&gt;</span>点击开启计时器<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">class</span>=<span class="string">&quot;stop&quot;</span>&gt;</span>点击停止计时器<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">let</span> begin = <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;.begin&#x27;</span>);</span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">let</span> stop = <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;.stop&#x27;</span>);</span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">let</span> timer = <span class="literal">null</span>;<span class="comment">// 全局变量 null是一个空对象</span></span></span><br><span class="line"><span class="language-javascript">    begin.<span class="title function_">addEventListener</span>(<span class="string">&#x27;click&#x27;</span>,<span class="keyword">function</span>(<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">        timer = <span class="built_in">setInterval</span>(<span class="keyword">function</span>(<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">            <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;boom&#x27;</span>)</span></span><br><span class="line"><span class="language-javascript">        &#125;,<span class="number">1000</span>);</span></span><br><span class="line"><span class="language-javascript">    &#125;)</span></span><br><span class="line"><span class="language-javascript">    stop.<span class="title function_">addEventListener</span>(<span class="string">&#x27;click&#x27;</span>,<span class="keyword">function</span>(<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">        <span class="built_in">clearInterval</span>(timer);<span class="comment">// 停止计时器</span></span></span><br><span class="line"><span class="language-javascript">    &#125;)</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
+<pre><code class="html">&lt;button class=&quot;begin&quot;&gt;点击开启计时器&lt;/button&gt;
+&lt;button class=&quot;stop&quot;&gt;点击停止计时器&lt;/button&gt;
+&lt;script&gt;
+    let begin = document.querySelector(&#39;.begin&#39;);
+    let stop = document.querySelector(&#39;.stop&#39;);
+    let timer = null;// 全局变量 null是一个空对象
+    begin.addEventListener(&#39;click&#39;,function() &#123;
+        timer = setInterval(function() &#123;
+            console.log(&#39;boom&#39;)
+        &#125;,1000);
+    &#125;)
+    stop.addEventListener(&#39;click&#39;,function() &#123;
+        clearInterval(timer);// 停止计时器
+    &#125;)
+&lt;/script&gt;
+</code></pre>
+</li>
 </ul>
 </li>
 </ul>
@@ -1042,13 +1426,34 @@
 </blockquote>
 <ul>
 <li><p>全局作用域或者普通函数中this指向全局对象window（ 注意定时器里面的this指向window）</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">fn</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="variable language_">window</span>.<span class="built_in">setTimeout</span>(<span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>);</span><br><span class="line"></span><br><span class="line">&#125;, <span class="number">1000</span>);</span><br></pre></td></tr></table></figure>
+<pre><code class="javascript">console.log(this);
+
+function fn() &#123;
+    console.log(this);
+&#125;
+
+window.setTimeout(function() &#123;
+    console.log(this);
+
+&#125;, 1000);
+</code></pre>
 </li>
 <li><p>方法调用中谁调用this指向谁</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> o = &#123;</span><br><span class="line">    <span class="attr">sayHi</span>: <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>); <span class="comment">// this指向的是 o 这个对象</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">o.<span class="title function_">sayHi</span>(); </span><br></pre></td></tr></table></figure>
+<pre><code class="javascript">let o = &#123;
+    sayHi: function() &#123;
+        console.log(this); // this指向的是 o 这个对象
+    &#125;
+&#125;
+o.sayHi(); 
+</code></pre>
 </li>
 <li><p>构造函数中this指向构造函数的实例</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">Fun</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>); <span class="comment">// this 指向的是fun 实例对象</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> fun = <span class="keyword">new</span> <span class="title class_">Fun</span>();</span><br></pre></td></tr></table></figure></li>
+<pre><code class="javascript">function Fun() &#123;
+    console.log(this); // this 指向的是fun 实例对象
+&#125;
+var fun = new Fun();
+</code></pre>
+</li>
 </ul>
 <h3 id="4-4-JS-执行机制"><a href="#4-4-JS-执行机制" class="headerlink" title="4.4 JS 执行机制"></a>4.4 JS 执行机制</h3><blockquote>
 <p>&#x3D;&#x3D;JS 是单线程&#x3D;&#x3D;同一个时间只做一件事</p>
@@ -1082,16 +1487,55 @@
 <h4 id="4-5-1-location-对象的属性"><a href="#4-5-1-location-对象的属性" class="headerlink" title="4.5.1 location 对象的属性"></a>4.5.1 location 对象的属性</h4><p><img src="E:\sheep\study\notes\images\location对象的属性.png" alt="location对象的属性"></p>
 <h5 id="（1）location-href"><a href="#（1）location-href" class="headerlink" title="（1）location.href"></a>（1）location.href</h5><ul>
 <li><p>可以获取网址或实现跳转</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">button</span>&gt;</span>点击<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">let</span> btn = <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;button&#x27;</span>);</span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">let</span> div = <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;div&#x27;</span>);</span></span><br><span class="line"><span class="language-javascript">        btn.<span class="title function_">addEventListener</span>(<span class="string">&#x27;click&#x27;</span>, <span class="keyword">function</span>(<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">            <span class="variable language_">console</span>.<span class="title function_">log</span>(location.<span class="property">href</span>);<span class="comment">// 获取网址</span></span></span><br><span class="line"><span class="language-javascript">            location.<span class="property">href</span> = <span class="string">&#x27;http://www.itcast.cn&#x27;</span>; <span class="comment">// 实现跳转</span></span></span><br><span class="line"><span class="language-javascript">        &#125;)</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
+<pre><code class="html">&lt;button&gt;点击&lt;/button&gt;
+&lt;script&gt;
+        let btn = document.querySelector(&#39;button&#39;);
+        let div = document.querySelector(&#39;div&#39;);
+        btn.addEventListener(&#39;click&#39;, function() &#123;
+            console.log(location.href);// 获取网址
+            location.href = &#39;http://www.itcast.cn&#39;; // 实现跳转
+        &#125;)
+&lt;/script&gt;
+</code></pre>
+</li>
 </ul>
 <h5 id="（2）location-search"><a href="#（2）location-search" class="headerlink" title="（2）location.search"></a>（2）location.search</h5><ul>
 <li><p>可以返回参数 (详见 Web APIs-第三天-10-获取URL参数)</p>
 <ul>
 <li><p>登陆页面 login.html</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    登陆页面</span><br><span class="line">    <span class="comment">&lt;!-- form实现跳转  --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">&quot;index.html&quot;</span> <span class="attr">method</span>=<span class="string">&quot;</span></span></span><br><span class="line"><span class="string"><span class="tag">    get&quot;</span>&gt;</span> </span><br><span class="line">        用户名：</span><br><span class="line">        <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">name</span>=<span class="string">&quot;uname&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;submit&quot;</span> <span class="attr">value</span>=<span class="string">&quot;登录&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="html">&lt;body&gt;
+    登陆页面
+    &lt;!-- form实现跳转  --&gt;
+    &lt;form action=&quot;index.html&quot; method=&quot;
+    get&quot;&gt; 
+        用户名：
+        &lt;input type=&quot;text&quot; name=&quot;uname&quot;&gt;
+        &lt;input type=&quot;submit&quot; value=&quot;登录&quot;&gt;
+    &lt;/form&gt;
+&lt;/body&gt;
+</code></pre>
 </li>
 <li><p>主页 index.html</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    首页</span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">i</span>&gt;</span>andy<span class="tag">&lt;/<span class="name">i</span>&gt;</span> 欢迎光临</span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">let</span> i = <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;i&#x27;</span>);</span></span><br><span class="line"><span class="language-javascript">        <span class="comment">// 通过 location.search 把参数 uname 拿过来</span></span></span><br><span class="line"><span class="language-javascript">        <span class="variable language_">console</span>.<span class="title function_">log</span>(location.<span class="property">search</span>);<span class="comment">// ?uname=andy</span></span></span><br><span class="line"><span class="language-javascript">        <span class="comment">// 1.先去掉？ substr(&#x27;起始的位置&#x27;,截取几个字符)</span></span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">let</span> params = location.<span class="property">search</span>.<span class="title function_">substr</span>(<span class="number">1</span>);</span></span><br><span class="line"><span class="language-javascript">        <span class="comment">// 2.利用 = 把字符串分割为数组 split(&#x27;=&#x27;);</span></span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">let</span> arr = params.<span class="title function_">split</span>(<span class="string">&#x27;=&#x27;</span>);</span></span><br><span class="line"><span class="language-javascript">        <span class="comment">// 3.把数据写入div中</span></span></span><br><span class="line"><span class="language-javascript">        i.<span class="property">innerHTML</span> = arr[<span class="number">1</span>];</span></span><br><span class="line"><span class="language-javascript">        <span class="comment">// console.log(location.href)</span></span></span><br><span class="line"><span class="language-javascript">    </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
+<pre><code class="html">&lt;body&gt;
+    首页
+    &lt;div&gt;
+        &lt;i&gt;andy&lt;/i&gt; 欢迎光临
+    &lt;/div&gt;
+    &lt;script&gt;
+        let i = document.querySelector(&#39;i&#39;);
+        // 通过 location.search 把参数 uname 拿过来
+        console.log(location.search);// ?uname=andy
+        // 1.先去掉？ substr(&#39;起始的位置&#39;,截取几个字符)
+        let params = location.search.substr(1);
+        // 2.利用 = 把字符串分割为数组 split(&#39;=&#39;);
+        let arr = params.split(&#39;=&#39;);
+        // 3.把数据写入div中
+        i.innerHTML = arr[1];
+        // console.log(location.href)
+    &lt;/script&gt;
+&lt;/body&gt;
+</code></pre>
+</li>
 </ul>
 </li>
 </ul>
@@ -1101,7 +1545,15 @@
 <ul>
 <li>&#x3D;&#x3D;location.assign() 是记录浏览历史的，所以可以实现后退功能&#x3D;&#x3D;</li>
 </ul>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">button</span>&gt;</span>按钮<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">let</span> btn = <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;button&#x27;</span>);</span></span><br><span class="line"><span class="language-javascript">    btn.<span class="title function_">addEventListener</span>(<span class="string">&#x27;click&#x27;</span>,<span class="keyword">function</span>(<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">        location.<span class="title function_">assign</span>(<span class="string">&#x27;https://www.bilibili.com&#x27;</span>);</span></span><br><span class="line"><span class="language-javascript">    &#125;)</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
+<pre><code class="html">&lt;button&gt;按钮&lt;/button&gt;
+&lt;script&gt;
+    let btn = document.querySelector(&#39;button&#39;);
+    btn.addEventListener(&#39;click&#39;,function() &#123;
+        location.assign(&#39;https://www.bilibili.com&#39;);
+    &#125;)
+&lt;/script&gt;
+</code></pre>
+</li>
 </ul>
 <h5 id="（2）location-replace"><a href="#（2）location-replace" class="headerlink" title="（2）location.replace()"></a>（2）location.replace()</h5><ul>
 <li>跳转页面，用法同 assign</li>
@@ -1109,22 +1561,47 @@
 </ul>
 <h5 id="（3）location-reload"><a href="#（3）location-reload" class="headerlink" title="（3）location.reload()"></a>（3）location.reload()</h5><ul>
 <li><p>刷新页面</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">button</span>&gt;</span>按钮<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">let</span> btn = <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;button&#x27;</span>);</span></span><br><span class="line"><span class="language-javascript">    btn.<span class="title function_">addEventListener</span>(<span class="string">&#x27;click&#x27;</span>,<span class="keyword">function</span>(<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">        location.<span class="title function_">reload</span>();</span></span><br><span class="line"><span class="language-javascript">        location.<span class="title function_">reload</span>(ture);<span class="comment">// 强制刷新</span></span></span><br><span class="line"><span class="language-javascript">    &#125;)</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
+<pre><code class="html">&lt;button&gt;按钮&lt;/button&gt;
+&lt;script&gt;
+    let btn = document.querySelector(&#39;button&#39;);
+    btn.addEventListener(&#39;click&#39;,function() &#123;
+        location.reload();
+        location.reload(ture);// 强制刷新
+    &#125;)
+&lt;/script&gt;
+</code></pre>
+</li>
 </ul>
 <h3 id="4-6-navigator-对象"><a href="#4-6-navigator-对象" class="headerlink" title="4.6 navigator 对象"></a>4.6 navigator 对象</h3><blockquote>
 <p>navigator 对象包含有关浏览器的信息，他有很多属性，&#x3D;&#x3D;我们最常用的是 userAgent&#x3D;&#x3D;，该属性可以返回由客户机发送服务器的 user-agent 头部的值。</p>
 </blockquote>
 <ul>
 <li><p>下面一段代码可以判断用户从哪个终端打开页面，实现跳转</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">if</span>((navigator.<span class="property">userAgent</span>.<span class="title function_">match</span>(<span class="regexp">/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i</span>))) &#123;</span><br><span class="line">	<span class="variable language_">window</span>.<span class="property">location</span>.<span class="property">href</span> = <span class="string">&quot;../H5/index.html&quot;</span>; <span class="comment">//手机</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<pre><code class="javascript">
+if((navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i))) &#123;
+    window.location.href = &quot;../H5/index.html&quot;; //手机
+&#125;
+</code></pre>
+</li>
 </ul>
 <h3 id="4-7-history-对象"><a href="#4-7-history-对象" class="headerlink" title="4.7 history 对象"></a>4.7 history 对象</h3><blockquote>
 <p>window 对象给我们提供了一个 &#x3D;&#x3D;history 对象&#x3D;&#x3D;，与&#x3D;&#x3D;浏览器历史记录进行交互&#x3D;&#x3D;。该对象包含用户（在浏览器窗口中）访问过的 URL。</p>
 </blockquote>
 <p><img src="E:\sheep\study\notes\images\history对象方法.png" alt="history对象方法"></p>
 <p>代码示例：</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;list.html&quot;</span>&gt;</span>点击我去往列表页<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span>&gt;</span>前进<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">let</span> btn = <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;button&#x27;</span>);</span></span><br><span class="line"><span class="language-javascript">        btn.<span class="title function_">addEventListener</span>(<span class="string">&#x27;click&#x27;</span>,<span class="keyword">function</span>(<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">            <span class="comment">// history.forward()</span></span></span><br><span class="line"><span class="language-javascript">            <span class="comment">// 前进</span></span></span><br><span class="line"><span class="language-javascript">            history.<span class="title function_">go</span>(<span class="number">1</span>)</span></span><br><span class="line"><span class="language-javascript">        &#125;)</span></span><br><span class="line"><span class="language-javascript">    </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
+<pre><code class="html">&lt;body&gt;
+    &lt;a href=&quot;list.html&quot;&gt;点击我去往列表页&lt;/a&gt;
+    &lt;button&gt;前进&lt;/button&gt;
+    &lt;script&gt;
+        let btn = document.querySelector(&#39;button&#39;);
+        btn.addEventListener(&#39;click&#39;,function() &#123;
+            // history.forward()
+            // 前进
+            history.go(1)
+        &#125;)
+    &lt;/script&gt;
+&lt;/body&gt;
+</code></pre>
 
   </div>
   <div id="gitalk-container"></div>
@@ -1295,7 +1772,7 @@ Fancybox.bind('[data-fancybox="fancybox-gallery-img"]', {
     var _hmt = _hmt || [];
     (function () {
         var hm = document.createElement("script");
-        hm.src = "https://hm.baidu.com/hm.js?4b5fe1472f22fadsfs";
+        hm.src = "https://hm.baidu.com/hm.js?94ea92e08139a609b3e9a9fd82080c82";
         var s = document.getElementsByTagName("script")[0];
         s.parentNode.insertBefore(hm, s);
     })();
