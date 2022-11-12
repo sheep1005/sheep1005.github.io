@@ -324,9 +324,9 @@
     <h1 id="Web-APIs"><a href="#Web-APIs" class="headerlink" title="Web APIs"></a>Web APIs</h1><h2 id="1-Web-APIs-和-JS-基础关联性"><a href="#1-Web-APIs-和-JS-基础关联性" class="headerlink" title="1. Web APIs 和 JS 基础关联性"></a>1. Web APIs 和 JS 基础关联性</h2><ul>
 <li>Web APIs 是 JS 的应用，大量使用 JS 基础语法做交互效果</li>
 </ul>
-<img src="E:\sheep\study\notes\images\JS的组成.png" alt="JS的组成" style="zoom:80%;" />
+<img src="/2022/11/11/Web%20APIs/images\JS的组成.png" alt="JS的组成" style="zoom:80%;">
 
-
+<img src="../images/touxiang.jpg" alt="touxiang" style="zoom:67%;">
 
 <h2 id="2-API-和Web-API"><a href="#2-API-和Web-API" class="headerlink" title="2. API 和Web API"></a>2. API 和Web API</h2><ul>
 <li>API （&#x3D;&#x3D;应用程序编程接口&#x3D;&#x3D;）一般是一些&#x3D;&#x3D;预定义的函数&#x3D;&#x3D;，是给程序员提供的一种工具，以便更轻松实现功能</li>
@@ -348,7 +348,7 @@
 <li><p>元素：页面中的所有标签都是元素，DOM 中用 element 表示</p>
 </li>
 <li><p>节点：网页中所有内容都是节点（标签、属性、文本、注释等）DOM 中用 node 表示</p>
-<img src="E:\sheep\study\notes\images\DOM树.png" alt="DOM树" style="zoom: 60%;" /></li>
+<img src="/2022/11/11/Web%20APIs/sheep\study\notes\images\DOM树.png" alt="DOM树" style="zoom: 60%;"></li>
 </ul>
 </li>
 </ul>
@@ -470,7 +470,7 @@ console.log(htmlEle);
 </ul>
 </li>
 </ul>
-<h5 id="3-3-3-常见的鼠标事件"><a href="#3-3-3-常见的鼠标事件" class="headerlink" title="3.3.3 常见的鼠标事件"></a>3.3.3 常见的鼠标事件</h5><img src="E:\sheep\study\notes\images\常见的鼠标事件.png" alt="常见的鼠标事件" style="zoom: 80%;" />
+<h5 id="3-3-3-常见的鼠标事件"><a href="#3-3-3-常见的鼠标事件" class="headerlink" title="3.3.3 常见的鼠标事件"></a>3.3.3 常见的鼠标事件</h5><img src="/2022/11/11/Web%20APIs/sheep\study\notes\images\常见的鼠标事件.png" alt="常见的鼠标事件" style="zoom: 80%;">
 
 <h3 id="3-4-操作元素"><a href="#3-4-操作元素" class="headerlink" title="3.4 操作元素"></a>3.4 操作元素</h3><h4 id="3-4-1-改变元素内容"><a href="#3-4-1-改变元素内容" class="headerlink" title="3.4.1 改变元素内容"></a>3.4.1 改变元素内容</h4><h6 id="（1）innerText"><a href="#（1）innerText" class="headerlink" title="（1）innerText"></a>（1）innerText</h6><blockquote>
 <p>替换从开始到终止位置的内容，但他去除 html 标签，同时空格和换行也会去掉</p>
@@ -499,12 +499,12 @@ p.innerText = getDate();
 <li><p>innerText 不识别html标签，同时空格和换行也会去掉</p>
 <pre><code class="html">div.innerText = &#39;&lt;strong&gt;今天是：&lt;/strong&gt; 2019&#39;;//
 </code></pre>
-<p><img src="E:\sheep\study\notes\images\innerText.png" alt="innerText"></p>
+<p><img src="/2022/11/11/Web%20APIs/sheep\study\notes\images\innerText.png" alt="innerText"></p>
 </li>
 <li><p>innerHTML 识别html标签，同时也保留空格和换行</p>
 <pre><code class="html">div.innerText = &#39;&lt;strong&gt;今天是：&lt;/strong&gt; 2019&#39;;//
 </code></pre>
-<img src="E:\sheep\study\notes\images\innerHTML.png" alt="innerHTML" style="zoom:80%;" /></li>
+<img src="/2022/11/11/Web%20APIs/sheep\study\notes\images\innerHTML.png" alt="innerHTML" style="zoom:80%;"></li>
 </ul>
 <h4 id="3-4-2-操作常见元素属性"><a href="#3-4-2-操作常见元素属性" class="headerlink" title="3.4.2 操作常见元素属性"></a>3.4.2 操作常见元素属性</h4><blockquote>
 <p>格式：&#x3D;&#x3D;元素.属性&#x3D; ‘ ‘&#x3D;&#x3D;</p>
@@ -614,7 +614,7 @@ test.onclick = function() &#123;
 </ul>
 </li>
 </ul>
-<h4 id="3-4-6-排他思想"><a href="#3-4-6-排他思想" class="headerlink" title="3.4.6 排他思想"></a>3.4.6 排他思想</h4><p><img src="E:\sheep\study\notes\images\排他思想.png" alt="排他思想"></p>
+<h4 id="3-4-6-排他思想"><a href="#3-4-6-排他思想" class="headerlink" title="3.4.6 排他思想"></a>3.4.6 排他思想</h4><p><img src="/2022/11/11/Web%20APIs/sheep\study\notes\images\排他思想.png" alt="排他思想"></p>
 <p>如果有同一组元素，我们想要某一个元素实现某种样式，需要用到循环的排他思想算法：</p>
 <ul>
 <li>所有元素全部清除样式</li>
@@ -718,13 +718,13 @@ div.className = &#39;navs&#39;;// 修改类名 class
 </code></pre>
 </li>
 </ul>
-<h3 id="3-5-节点操作"><a href="#3-5-节点操作" class="headerlink" title="3.5 节点操作"></a>3.5 节点操作</h3><img src="E:\sheep\study\notes\images\获取元素.png" alt="获取元素" style="zoom:80%;" />
+<h3 id="3-5-节点操作"><a href="#3-5-节点操作" class="headerlink" title="3.5 节点操作"></a>3.5 节点操作</h3><img src="/2022/11/11/Web%20APIs/sheep\study\notes\images\获取元素.png" alt="获取元素" style="zoom:80%;">
 
 <h4 id="3-5-1-节点概述"><a href="#3-5-1-节点概述" class="headerlink" title="3.5.1 节点概述"></a>3.5.1 节点概述</h4><ul>
 <li><p>网页中所有内容都是节点（&#x3D;&#x3D;标签、属性、文本、注释等&#x3D;&#x3D;）</p>
 </li>
 <li><p>HTML DOM 书中的所有节点均可通过 JavaScript 进行访问，所有 HTML 元素（节点）均可被修改，也可以创建或删除</p>
-<img src="E:\sheep\study\notes\images\DOM树.png" alt="DOM树" style="zoom: 67%;" />
+<img src="/2022/11/11/Web%20APIs/sheep\study\notes\images\DOM树.png" alt="DOM树" style="zoom: 67%;">
 
 
 </li>
@@ -1047,7 +1047,7 @@ function fn() &#123;
 <li>捕获阶段</li>
 <li>当前目标阶段</li>
 <li>&#x3D;&#x3D;冒泡阶段&#x3D;&#x3D;<ul>
-<li>有些事件是没有冒泡的，比如 onblur、onfocus、onmouseenter、onmouseleave<br> <img src="E:\sheep\study\notes\images\DOM事件流.png" alt="DOM事件流"></li>
+<li>有些事件是没有冒泡的，比如 onblur、onfocus、onmouseenter、onmouseleave<br> <img src="/2022/11/11/Web%20APIs/sheep\study\notes\images\DOM事件流.png" alt="DOM事件流"></li>
 </ul>
 </li>
 </ul>
@@ -1111,7 +1111,7 @@ document.addEventListener(&#39;click&#39;, function() &#123;
 <li><p>事件对象&#x3D;&#x3D;可以自己命名&#x3D;&#x3D; 比如 event 、 evt、 e</p>
 </li>
 <li><p>事件对象的常见属性和方法：</p>
-<p><img src="E:\sheep\study\notes\images\事件对象的常见属性和方法.png" alt="事件对象的常见属性和方法"></p>
+<p><img src="/2022/11/11/Web%20APIs/sheep\study\notes\images\事件对象的常见属性和方法.png" alt="事件对象的常见属性和方法"></p>
 </li>
 </ul>
 <h4 id="3-6-5-阻止事件冒泡"><a href="#3-6-5-阻止事件冒泡" class="headerlink" title="3.6.5 阻止事件冒泡"></a>3.6.5 阻止事件冒泡</h4><blockquote>
@@ -1184,7 +1184,7 @@ document.addEventListener(&#39;click&#39;, function() &#123;
     &#125;)
 &lt;/script&gt;
 </code></pre>
-<h4 id="3-6-7-常用的鼠标事件"><a href="#3-6-7-常用的鼠标事件" class="headerlink" title="3.6.7 常用的鼠标事件"></a>3.6.7 常用的鼠标事件</h4><h5 id="（1）鼠标事件"><a href="#（1）鼠标事件" class="headerlink" title="（1）鼠标事件"></a>（1）鼠标事件</h5><h6 id="1-常用的鼠标事件"><a href="#1-常用的鼠标事件" class="headerlink" title="1. 常用的鼠标事件"></a>1. 常用的鼠标事件</h6><p><img src="E:\sheep\study\notes\images\常见的鼠标事件.png" alt="常见的鼠标事件"></p>
+<h4 id="3-6-7-常用的鼠标事件"><a href="#3-6-7-常用的鼠标事件" class="headerlink" title="3.6.7 常用的鼠标事件"></a>3.6.7 常用的鼠标事件</h4><h5 id="（1）鼠标事件"><a href="#（1）鼠标事件" class="headerlink" title="（1）鼠标事件"></a>（1）鼠标事件</h5><h6 id="1-常用的鼠标事件"><a href="#1-常用的鼠标事件" class="headerlink" title="1. 常用的鼠标事件"></a>1. 常用的鼠标事件</h6><p><img src="/2022/11/11/Web%20APIs/sheep\study\notes\images\常见的鼠标事件.png" alt="常见的鼠标事件"></p>
 <ul>
 <li>&#x3D;&#x3D;mouseenter 和 mouseover（mouseleave 和 mouseout） 的区别&#x3D;&#x3D;<ul>
 <li>mouseenter &#x2F; mouseleave 鼠标事件<ul>
@@ -1212,7 +1212,7 @@ document.addEventListener(&#39;click&#39;, function() &#123;
 <h5 id="（2）鼠标事件对象"><a href="#（2）鼠标事件对象" class="headerlink" title="（2）鼠标事件对象"></a>（2）鼠标事件对象</h5><blockquote>
 <p>&#x3D;&#x3D;event&#x3D;&#x3D; 对象代表事件的状态，跟事件相关的一系列信息的集合。现阶段我们主要用鼠标事件对象 &#x3D;&#x3D;MouseEvent&#x3D;&#x3D; 和键盘事件对象 &#x3D;&#x3D;KeyboardEvent&#x3D;&#x3D;。</p>
 </blockquote>
-<img src="E:\sheep\study\notes\images\鼠标事件对象.png" alt="鼠标事件对象"  />
+<img src="/2022/11/11/Web%20APIs/sheep\study\notes\images\鼠标事件对象.png" alt="鼠标事件对象">
 
 <ul>
 <li><p>案例 - 跟随鼠标的天使</p>
@@ -1248,7 +1248,7 @@ document.addEventListener(&#39;click&#39;, function() &#123;
 <h4 id="3-6-8-常用的键盘事件"><a href="#3-6-8-常用的键盘事件" class="headerlink" title="3.6.8 常用的键盘事件"></a>3.6.8 常用的键盘事件</h4><h5 id="（1）常用键盘事件"><a href="#（1）常用键盘事件" class="headerlink" title="（1）常用键盘事件"></a>（1）常用键盘事件</h5><blockquote>
 <p>三个事件同时存在时的顺序： keydown – keypress – keyup</p>
 </blockquote>
-<p><img src="E:\sheep\study\notes\images\常用键盘事件.png"></p>
+<p><img src="/2022/11/11/Web%20APIs/sheep\study\notes\images\常用键盘事件.png"></p>
 <h5 id="（2）键盘事件对象"><a href="#（2）键盘事件对象" class="headerlink" title="（2）键盘事件对象"></a>（2）键盘事件对象</h5><blockquote>
 <p>键盘事件对象（keyboardEvent）中的 &#x3D;&#x3D;keyCode&#x3D;&#x3D; 属性&#x3D;&#x3D;可以得到相应键的 ASCII 码值&#x3D;&#x3D;。</p>
 </blockquote>
@@ -1273,7 +1273,7 @@ document.addEventListener(&#39;click&#39;, function() &#123;
 <li>BOM 由一系列相关的对象组成，并且每个对象都提供了很多方法和属性。</li>
 </ul>
 <h4 id="4-1-2-BOM-构成"><a href="#4-1-2-BOM-构成" class="headerlink" title="4.1.2 BOM 构成"></a>4.1.2 BOM 构成</h4><p>BOM 比 DOM 更大，它包含 DOM</p>
-<p><img src="E:\sheep\study\notes\images\BOM的构成.png" alt="BOM的构成"></p>
+<p><img src="/2022/11/11/Web%20APIs/sheep\study\notes\images\BOM的构成.png" alt="BOM的构成"></p>
 <h3 id="4-2-window-对象的常见事件"><a href="#4-2-window-对象的常见事件" class="headerlink" title="4.2 window 对象的常见事件"></a>4.2 window 对象的常见事件</h3><ul>
 <li>&#x3D;&#x3D;window 对象是浏览器的顶级对象&#x3D;&#x3D;，它具有双重角色<ul>
 <li>它是 JS 访问浏览器窗口的一个接口。</li>
@@ -1475,7 +1475,7 @@ var fun = new Fun();
 </ul>
 </li>
 </ul>
-<h4 id="4-4-2-执行机制"><a href="#4-4-2-执行机制" class="headerlink" title="4.4.2 执行机制"></a>4.4.2 执行机制</h4><p><img src="E:\sheep\study\notes\images\JS执行机制.png" alt="JS执行机制"></p>
+<h4 id="4-4-2-执行机制"><a href="#4-4-2-执行机制" class="headerlink" title="4.4.2 执行机制"></a>4.4.2 执行机制</h4><p><img src="/2022/11/11/Web%20APIs/sheep\study\notes\images\JS执行机制.png" alt="JS执行机制"></p>
 <ul>
 <li>先执行&#x3D;&#x3D;执行栈中的同步任务&#x3D;&#x3D;。</li>
 <li>异步任务（回调函数）放入任务队列中。</li>
@@ -1484,7 +1484,7 @@ var fun = new Fun();
 <h3 id="4-5-location-对象"><a href="#4-5-location-对象" class="headerlink" title="4.5 location 对象"></a>4.5 location 对象</h3><blockquote>
 <p>window 对象给我们提供了一个 &#x3D;&#x3D;location 属性&#x3D;&#x3D;用于&#x3D;&#x3D;获取或设置窗体的 URL&#x3D;&#x3D;（网址），并且可以用来&#x3D;&#x3D;解析 URL&#x3D;&#x3D; 。因为这个属性返回的是一个对象，所以我们将这个属性也称为 &#x3D;&#x3D;location 对象&#x3D;&#x3D;</p>
 </blockquote>
-<h4 id="4-5-1-location-对象的属性"><a href="#4-5-1-location-对象的属性" class="headerlink" title="4.5.1 location 对象的属性"></a>4.5.1 location 对象的属性</h4><p><img src="E:\sheep\study\notes\images\location对象的属性.png" alt="location对象的属性"></p>
+<h4 id="4-5-1-location-对象的属性"><a href="#4-5-1-location-对象的属性" class="headerlink" title="4.5.1 location 对象的属性"></a>4.5.1 location 对象的属性</h4><p><img src="/2022/11/11/Web%20APIs/sheep\study\notes\images\location对象的属性.png" alt="location对象的属性"></p>
 <h5 id="（1）location-href"><a href="#（1）location-href" class="headerlink" title="（1）location.href"></a>（1）location.href</h5><ul>
 <li><p>可以获取网址或实现跳转</p>
 <pre><code class="html">&lt;button&gt;点击&lt;/button&gt;
@@ -1539,7 +1539,7 @@ var fun = new Fun();
 </ul>
 </li>
 </ul>
-<h4 id="4-5-2-location-对象的方法"><a href="#4-5-2-location-对象的方法" class="headerlink" title="4.5.2 location 对象的方法"></a>4.5.2 location 对象的方法</h4><p><img src="E:\sheep\study\notes\images\location对象的方法.png" alt="location对象的方法"></p>
+<h4 id="4-5-2-location-对象的方法"><a href="#4-5-2-location-对象的方法" class="headerlink" title="4.5.2 location 对象的方法"></a>4.5.2 location 对象的方法</h4><p><img src="/2022/11/11/Web%20APIs/sheep\study\notes\images\location对象的方法.png" alt="location对象的方法"></p>
 <h5 id="（1）location-assign"><a href="#（1）location-assign" class="headerlink" title="（1）location.assign()"></a>（1）location.assign()</h5><ul>
 <li><p>跳转页面</p>
 <ul>
@@ -1587,7 +1587,7 @@ if((navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobil
 <h3 id="4-7-history-对象"><a href="#4-7-history-对象" class="headerlink" title="4.7 history 对象"></a>4.7 history 对象</h3><blockquote>
 <p>window 对象给我们提供了一个 &#x3D;&#x3D;history 对象&#x3D;&#x3D;，与&#x3D;&#x3D;浏览器历史记录进行交互&#x3D;&#x3D;。该对象包含用户（在浏览器窗口中）访问过的 URL。</p>
 </blockquote>
-<p><img src="E:\sheep\study\notes\images\history对象方法.png" alt="history对象方法"></p>
+<p><img src="/2022/11/11/Web%20APIs/sheep\study\notes\images\history对象方法.png" alt="history对象方法"></p>
 <p>代码示例：</p>
 <pre><code class="html">&lt;body&gt;
     &lt;a href=&quot;list.html&quot;&gt;点击我去往列表页&lt;/a&gt;
@@ -1662,10 +1662,10 @@ Fancybox.bind('[data-fancybox="fancybox-gallery-img"]', {
 
     <div class="post-paging">
     
-    <a href="/2022/11/11/JavaScript%E9%AB%98%E7%BA%A7/">
+    <a href="/2022/11/11/PC%E7%AB%AF%E7%BD%91%E9%A1%B5%E7%89%B9%E6%95%88/">
         <div class="post-paging-last">
             <span>上一篇</span>
-            <p>JavaScript高级</p>
+            <p>PC端网页特效</p>
         </div>
     </a>
     
